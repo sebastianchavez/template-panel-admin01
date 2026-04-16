@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Centro de Comando - Gestión de Tickets</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-highest":"#e0e3e5","tertiary-fixed-dim":"#ffb691","outline-variant":"#c5c5d3","primary-fixed-dim":"#b6c4ff","primary":"#00236f","on-surface-variant":"#444651","on-error":"#ffffff","on-secondary-fixed-variant":"#3a485b","secondary":"#515f74","tertiary":"#4b1c00","surface-container-high":"#e6e8ea","secondary-fixed-dim":"#b9c7df","on-primary-container":"#90a8ff","outline":"#757682","on-primary-fixed-variant":"#264191","surface-bright":"#f7f9fb","on-primary":"#ffffff","on-tertiary-fixed-variant":"#773205","error":"#ba1a1a","tertiary-fixed":"#ffdbcb","primary-container":"#1e3a8a","surface-container":"#eceef0","on-secondary-container":"#57657a","surface-container-lowest":"#ffffff","tertiary-container":"#6e2c00","on-tertiary-container":"#f39461","surface-tint":"#4059aa","secondary-container":"#d5e3fc","surface":"#f7f9fb","on-error-container":"#93000a","surface-variant":"#e0e3e5","inverse-on-surface":"#eff1f3","error-container":"#ffdad6","on-tertiary-fixed":"#341100","inverse-primary":"#b6c4ff","on-primary-fixed":"#00164e","on-surface":"#191c1e","primary-fixed":"#dce1ff","on-background":"#191c1e","surface-container-low":"#f2f4f6","inverse-surface":"#2d3133","on-secondary":"#ffffff","secondary-fixed":"#d5e3fc","background":"#f7f9fb","surface-dim":"#d8dadc","on-secondary-fixed":"#0d1c2e","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},fontFamily:{headline:["Manrope"],body:["Inter"],label:["Inter"]}}}}</script>
+    <link rel="stylesheet" href="../assets/css/styles.css"/>
+    <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}body{font-family:'Inter',sans-serif}h1,h2,h3,.headline{font-family:'Manrope',sans-serif}</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<div id="sidebar-overlay" class="hidden fixed inset-0 bg-black/40 z-50 lg:hidden" onclick="Sidebar.closeMobile()"></div>
+
+<!-- Sidebar -->
+<aside id="sidebar" class="w-64 h-screen fixed left-0 top-0 bg-[#d8dadc] flex flex-col border-r border-slate-200/15 font-['Manrope'] antialiased tracking-tight z-50">
+    <div class="px-6 py-6 flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white flex-shrink-0"><span class="material-symbols-outlined">architecture</span></div><div class="sidebar-brand-text"><h1 class="text-xl font-bold text-[#191c1e] leading-none">The Editorial</h1><p class="text-[10px] uppercase tracking-widest text-on-surface-variant mt-1">Centro de Comando</p></div></div>
+    <nav class="flex-1 mt-2 space-y-1 overflow-y-auto no-scrollbar">
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../dashboard/index.html"><span class="material-symbols-outlined">dashboard</span><span class="text-sm font-medium sidebar-text">Panel de Control</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../user_management/index.html"><span class="material-symbols-outlined">group</span><span class="text-sm font-medium sidebar-text">Gestión de Usuarios</span></a>
+        <a class="flex items-center gap-3 border-l-4 border-[#00236f] bg-[#f2f4f6]/50 text-[#191c1e] font-bold pl-4 py-3 hover:bg-[#f2f4f6] transition-colors" href="../ticket_management/index.html"><span class="material-symbols-outlined">confirmation_number</span><span class="text-sm sidebar-text">Tickets</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../payment_systems/index.html"><span class="material-symbols-outlined">account_balance</span><span class="text-sm font-medium sidebar-text">Sistemas de Pago</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../payment_history/index.html"><span class="material-symbols-outlined">receipt_long</span><span class="text-sm font-medium sidebar-text">Historial de Pagos</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../reports_analytics/index.html"><span class="material-symbols-outlined">monitoring</span><span class="text-sm font-medium sidebar-text">Reportes y Análisis</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../products/index.html"><span class="material-symbols-outlined">inventory_2</span><span class="text-sm font-medium sidebar-text">Productos</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../inbox/index.html"><span class="material-symbols-outlined">inbox</span><span class="text-sm font-medium sidebar-text">Mensajería</span></a>
+    </nav>
+    <div class="px-6 py-5 border-t border-black/5 sidebar-bottom-section">
+        <div class="space-y-1">
+            <a class="flex items-center gap-3 text-[#444651] py-2 hover:text-[#00236f] transition-colors" href="../settings/index.html"><span class="material-symbols-outlined">settings</span><span class="text-sm font-medium sidebar-text">Configuración</span></a>
+            <button data-toggle-dark class="flex items-center gap-3 text-[#444651] py-2 hover:text-[#00236f] transition-colors w-full text-left"><span class="material-symbols-outlined" data-dark-icon>dark_mode</span><span class="text-sm font-medium sidebar-text">Modo Oscuro</span></button>
+            <a class="flex items-center gap-3 text-[#444651] py-2 hover:text-error transition-colors" href="../login/index.html"><span class="material-symbols-outlined">logout</span><span class="text-sm font-medium sidebar-text">Cerrar Sesión</span></a>
+        </div>
+    </div>
+</aside>
+
+<!-- Header -->
+<header id="top-header" class="fixed top-0 right-0 left-64 z-40 flex justify-between items-center px-8 h-16 bg-[#f7f9fb]/80 backdrop-blur-xl text-sm border-b border-outline-variant/10">
+    <div class="flex items-center gap-6">
+        <button id="sidebar-toggle" class="lg:hidden p-2 text-secondary hover:bg-surface-container-low rounded-lg"><span class="material-symbols-outlined">menu</span></button>
+        <div class="relative hidden sm:block"><span class="absolute inset-y-0 left-3 flex items-center text-outline pointer-events-none"><span class="material-symbols-outlined text-[20px]">search</span></span><input class="bg-surface-container-highest border-none rounded-full py-2 pl-10 pr-4 w-64 focus:ring-2 ring-[#4059aa] transition-all text-on-surface placeholder:text-outline-variant text-sm" placeholder="Buscar tickets..." type="text"/></div>
+    </div>
+    <div class="flex items-center gap-3">
+        <button class="p-2 text-secondary hover:bg-surface-container-low rounded-full transition-colors relative"><span class="material-symbols-outlined">notifications</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface"></span></button>
+        <div class="h-8 w-[1px] bg-outline-variant/30 mx-1"></div>
+        <div class="relative" id="user-menu-toggle"><div class="flex items-center gap-3 cursor-pointer"><div class="text-right hidden sm:block"><p class="text-xs font-bold text-on-surface">Alex Chen</p><p class="text-[10px] text-secondary">Administrador</p></div><img class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm ring-1 ring-black/5" alt="Avatar" src="https://ui-avatars.com/api/?name=Alex+Chen&background=1e3a8a&color=fff&size=80"/></div>
+            <div id="user-menu-dropdown" class="hidden absolute right-0 top-12 w-56 bg-surface-container-lowest rounded-xl shadow-2xl border border-outline-variant/15 py-2 z-50"><div class="px-4 py-3 border-b border-outline-variant/10"><p class="text-sm font-bold text-on-surface">Alex Chen</p><p class="text-xs text-secondary">alex.chen@empresa.com</p></div><a href="../profile/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-lg">person</span>Mi Perfil</a><a href="../settings/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-lg">settings</span>Configuración</a><div class="border-t border-outline-variant/10 my-1"></div><a href="../login/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-error hover:bg-error-container/30 transition-colors"><span class="material-symbols-outlined text-lg">logout</span>Cerrar Sesión</a></div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main id="main-content" class="ml-64 pt-24 pb-12 px-8 min-h-screen transition-all">
+<div class="max-w-7xl mx-auto animate-fade-in">
+
+    <!-- Page Header -->
+    <div class="mb-10 flex flex-col lg:flex-row justify-between lg:items-end gap-4">
+        <div>
+            <div class="flex items-center gap-2 text-xs font-medium text-on-surface-variant uppercase tracking-widest mb-2">
+                <span>Centro de Comando</span><span class="material-symbols-outlined text-[12px]">chevron_right</span><span class="text-primary font-bold">Tickets</span>
+            </div>
+            <h2 class="text-4xl font-extrabold tracking-tight text-on-surface headline">Gestión de Tickets</h2>
+            <p class="text-on-surface-variant mt-2">Gestiona solicitudes de soporte, incidencias y consultas.</p>
+        </div>
+        <button onclick="Modal.open('modal-create-ticket')" class="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-primary-container text-white rounded-lg font-bold text-sm shadow-lg shadow-primary/20 hover:translate-y-[-1px] transition-all">
+            <span class="material-symbols-outlined text-sm">add_circle</span>Crear Ticket
+        </button>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 animate-stagger">
+        <div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/15">
+            <div class="flex items-center justify-between"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Abiertos</span><div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center"><span class="material-symbols-outlined text-blue-600 text-lg">inbox</span></div></div>
+            <p class="text-3xl font-black headline text-on-surface mt-3">127</p>
+            <p class="text-xs text-error font-bold mt-1">+15% esta semana</p>
+        </div>
+        <div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/15">
+            <div class="flex items-center justify-between"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">En Progreso</span><div class="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center"><span class="material-symbols-outlined text-amber-600 text-lg">pending</span></div></div>
+            <p class="text-3xl font-black headline text-on-surface mt-3">43</p>
+            <p class="text-xs text-on-surface-variant mt-1">8 asignados a ti</p>
+        </div>
+        <div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/15">
+            <div class="flex items-center justify-between"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Resueltos (30d)</span><div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center"><span class="material-symbols-outlined text-green-600 text-lg">check_circle</span></div></div>
+            <p class="text-3xl font-black headline text-on-surface mt-3">312</p>
+            <p class="text-xs text-green-600 font-bold mt-1">Tiempo medio: 4.2h</p>
+        </div>
+        <div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/15">
+            <div class="flex items-center justify-between"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Urgentes</span><div class="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center"><span class="material-symbols-outlined text-error text-lg">priority_high</span></div></div>
+            <p class="text-3xl font-black headline text-error mt-3">5</p>
+            <p class="text-xs text-error font-bold mt-1">Requieren atención inmediata</p>
+        </div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="flex flex-wrap gap-2 mb-5">
+        <button class="px-4 py-2 rounded-lg bg-primary text-white text-xs font-bold" onclick="filterTicketStatus('')">Todos</button>
+        <button class="px-4 py-2 rounded-lg bg-surface-container-low text-secondary text-xs font-semibold hover:bg-surface-container transition-colors" onclick="filterTicketStatus('Abierto')">Abierto</button>
+        <button class="px-4 py-2 rounded-lg bg-surface-container-low text-secondary text-xs font-semibold hover:bg-surface-container transition-colors" onclick="filterTicketStatus('En Progreso')">En Progreso</button>
+        <button class="px-4 py-2 rounded-lg bg-surface-container-low text-secondary text-xs font-semibold hover:bg-surface-container transition-colors" onclick="filterTicketStatus('Resuelto')">Resuelto</button>
+        <button class="px-4 py-2 rounded-lg bg-surface-container-low text-secondary text-xs font-semibold hover:bg-surface-container transition-colors" onclick="filterTicketStatus('Cerrado')">Cerrado</button>
+        <div class="ml-auto flex gap-2">
+            <select class="bg-surface-container-low border-none rounded-lg py-2 px-3 text-xs font-semibold text-secondary focus:ring-2 ring-surface-tint" onchange="filterTicketPriority(this.value)">
+                <option value="">Todas las prioridades</option>
+                <option value="Crítica">Crítica</option>
+                <option value="Alta">Alta</option>
+                <option value="Media">Media</option>
+                <option value="Baja">Baja</option>
+            </select>
+            <div class="relative"><span class="absolute inset-y-0 left-3 flex items-center pointer-events-none"><span class="material-symbols-outlined text-outline text-[16px]">search</span></span>
+                <input type="text" placeholder="Buscar tickets..." class="bg-surface-container-low border-none rounded-lg py-2 pl-9 pr-4 w-48 text-xs focus:ring-2 ring-surface-tint" oninput="TableUtils.search('tickets-table', this.value)"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tickets Table -->
+    <div class="rounded-xl bg-surface-container-lowest border border-outline-variant/15 overflow-hidden mb-6">
+        <div class="overflow-x-auto">
+            <table id="tickets-table" class="w-full text-sm">
+                <thead>
+                    <tr class="bg-surface-container-low">
+                        <th class="text-left px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest cursor-pointer" onclick="TableUtils.sort('tickets-table',0)">ID <span class="material-symbols-outlined text-[12px] sort-icon">unfold_more</span></th>
+                        <th class="text-left px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Asunto</th>
+                        <th class="text-left px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Prioridad</th>
+                        <th class="text-left px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Estado</th>
+                        <th class="text-left px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Asignado</th>
+                        <th class="text-left px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest cursor-pointer" onclick="TableUtils.sort('tickets-table',5)">Creado <span class="material-symbols-outlined text-[12px] sort-icon">unfold_more</span></th>
+                        <th class="text-left px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-outline-variant/10">
+                    <tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="Drawer.open('drawer-ticket-detail')">
+                        <td class="px-6 py-4 text-xs font-mono font-bold text-primary">#TK-2847</td>
+                        <td class="px-6 py-4"><p class="font-semibold text-on-surface">Error al procesar pagos con Stripe</p><p class="text-xs text-on-surface-variant line-clamp-1">Los pagos con tarjeta de crédito están fallando desde ayer...</p></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-red-100 text-red-700">Crítica</span></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-100 text-blue-700">Abierto</span></td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-2"><img class="w-6 h-6 rounded-full" src="https://ui-avatars.com/api/?name=AC&background=1e3a8a&color=fff&size=48" alt=""/><span class="text-xs font-medium">Alex C.</span></div></td>
+                        <td class="px-6 py-4 text-xs text-on-surface-variant">Hace 2 horas</td>
+                        <td class="px-6 py-4"><button class="p-1.5 rounded-lg hover:bg-surface-container-low transition-colors" onclick="event.stopPropagation();Drawer.open('drawer-ticket-detail')"><span class="material-symbols-outlined text-lg text-secondary">visibility</span></button></td>
+                    </tr>
+                    <tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="Drawer.open('drawer-ticket-detail')">
+                        <td class="px-6 py-4 text-xs font-mono font-bold text-primary">#TK-2846</td>
+                        <td class="px-6 py-4"><p class="font-semibold text-on-surface">Solicitud de cambio de plan Enterprise</p><p class="text-xs text-on-surface-variant line-clamp-1">El cliente Acme Corp solicita upgrade a Enterprise...</p></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-100 text-amber-700">Alta</span></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-100 text-amber-700">En Progreso</span></td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-2"><img class="w-6 h-6 rounded-full" src="https://ui-avatars.com/api/?name=MS&background=4059aa&color=fff&size=48" alt=""/><span class="text-xs font-medium">Maria S.</span></div></td>
+                        <td class="px-6 py-4 text-xs text-on-surface-variant">Hace 5 horas</td>
+                        <td class="px-6 py-4"><button class="p-1.5 rounded-lg hover:bg-surface-container-low transition-colors" onclick="event.stopPropagation();Drawer.open('drawer-ticket-detail')"><span class="material-symbols-outlined text-lg text-secondary">visibility</span></button></td>
+                    </tr>
+                    <tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="Drawer.open('drawer-ticket-detail')">
+                        <td class="px-6 py-4 text-xs font-mono font-bold text-primary">#TK-2845</td>
+                        <td class="px-6 py-4"><p class="font-semibold text-on-surface">Bug en exportación CSV de reportes</p><p class="text-xs text-on-surface-variant line-clamp-1">Al exportar reportes con más de 10k filas el archivo sale corrupto...</p></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-100 text-amber-700">Alta</span></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-100 text-blue-700">Abierto</span></td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-2"><img class="w-6 h-6 rounded-full" src="https://ui-avatars.com/api/?name=CR&background=6e2c00&color=fff&size=48" alt=""/><span class="text-xs font-medium">Carlos R.</span></div></td>
+                        <td class="px-6 py-4 text-xs text-on-surface-variant">Hace 1 día</td>
+                        <td class="px-6 py-4"><button class="p-1.5 rounded-lg hover:bg-surface-container-low transition-colors" onclick="event.stopPropagation();Drawer.open('drawer-ticket-detail')"><span class="material-symbols-outlined text-lg text-secondary">visibility</span></button></td>
+                    </tr>
+                    <tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="Drawer.open('drawer-ticket-detail')">
+                        <td class="px-6 py-4 text-xs font-mono font-bold text-primary">#TK-2844</td>
+                        <td class="px-6 py-4"><p class="font-semibold text-on-surface">Actualizar documentación de API v3</p><p class="text-xs text-on-surface-variant line-clamp-1">La documentación no refleja cambios en endpoints de usuarios...</p></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-100 text-blue-700">Media</span></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-100 text-amber-700">En Progreso</span></td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-2"><img class="w-6 h-6 rounded-full" src="https://ui-avatars.com/api/?name=DT&background=264191&color=fff&size=48" alt=""/><span class="text-xs font-medium">Diego T.</span></div></td>
+                        <td class="px-6 py-4 text-xs text-on-surface-variant">Hace 2 días</td>
+                        <td class="px-6 py-4"><button class="p-1.5 rounded-lg hover:bg-surface-container-low transition-colors" onclick="event.stopPropagation();Drawer.open('drawer-ticket-detail')"><span class="material-symbols-outlined text-lg text-secondary">visibility</span></button></td>
+                    </tr>
+                    <tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="Drawer.open('drawer-ticket-detail')">
+                        <td class="px-6 py-4 text-xs font-mono font-bold text-primary">#TK-2843</td>
+                        <td class="px-6 py-4"><p class="font-semibold text-on-surface">Mejorar rendimiento del dashboard</p><p class="text-xs text-on-surface-variant line-clamp-1">El dashboard tarda más de 5s en cargar gráficos...</p></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-100 text-blue-700">Media</span></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-green-100 text-green-700">Resuelto</span></td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-2"><img class="w-6 h-6 rounded-full" src="https://ui-avatars.com/api/?name=AM&background=773205&color=fff&size=48" alt=""/><span class="text-xs font-medium">Ana M.</span></div></td>
+                        <td class="px-6 py-4 text-xs text-on-surface-variant">Hace 3 días</td>
+                        <td class="px-6 py-4"><button class="p-1.5 rounded-lg hover:bg-surface-container-low transition-colors" onclick="event.stopPropagation();Drawer.open('drawer-ticket-detail')"><span class="material-symbols-outlined text-lg text-secondary">visibility</span></button></td>
+                    </tr>
+                    <tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="Drawer.open('drawer-ticket-detail')">
+                        <td class="px-6 py-4 text-xs font-mono font-bold text-primary">#TK-2842</td>
+                        <td class="px-6 py-4"><p class="font-semibold text-on-surface">Consulta sobre integración SSO</p><p class="text-xs text-on-surface-variant line-clamp-1">¿Es posible integrar con Azure AD para SSO?...</p></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600">Baja</span></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-600">Cerrado</span></td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-2"><img class="w-6 h-6 rounded-full" src="https://ui-avatars.com/api/?name=PV&background=3a485b&color=fff&size=48" alt=""/><span class="text-xs font-medium">Pedro V.</span></div></td>
+                        <td class="px-6 py-4 text-xs text-on-surface-variant">Hace 5 días</td>
+                        <td class="px-6 py-4"><button class="p-1.5 rounded-lg hover:bg-surface-container-low transition-colors" onclick="event.stopPropagation();Drawer.open('drawer-ticket-detail')"><span class="material-symbols-outlined text-lg text-secondary">visibility</span></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="flex items-center justify-between px-6 py-4 border-t border-outline-variant/10">
+            <span class="text-xs text-on-surface-variant">1-6 de 347 tickets</span>
+            <div class="flex items-center gap-2">
+                <button class="px-3 py-1.5 text-xs font-semibold bg-surface-container-low text-secondary rounded-lg disabled:opacity-40" disabled>Anterior</button>
+                <span class="text-xs font-bold text-on-surface">Página 1 de 58</span>
+                <button class="px-3 py-1.5 text-xs font-semibold bg-primary text-white rounded-lg">Siguiente</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</main>
+
+<!-- Create Ticket Modal -->
+<div id="modal-create-ticket" class="hidden fixed inset-0 z-[100] items-center justify-center p-4">
+    <div class="modal-backdrop absolute inset-0 bg-black/40" onclick="Modal.close('modal-create-ticket')"></div>
+    <div class="modal-panel relative bg-surface-container-lowest rounded-xl shadow-2xl w-full max-w-lg p-6 border border-outline-variant/15 max-h-[90vh] overflow-y-auto">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-lg font-extrabold headline">Crear Nuevo Ticket</h3>
+            <button onclick="Modal.close('modal-create-ticket')" class="p-1 hover:bg-surface-container-low rounded-lg transition-colors"><span class="material-symbols-outlined">close</span></button>
+        </div>
+        <form class="space-y-5" novalidate onsubmit="event.preventDefault();if(FormValidator.validate(this)){Modal.close('modal-create-ticket');Toast.show('Ticket creado exitosamente','success')}">
+            <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Asunto</label><input type="text" required class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm" placeholder="Resumen breve del problema"/><p class="field-error hidden text-xs text-error font-medium"></p></div>
+            <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Descripción</label><textarea required rows="4" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm resize-none" placeholder="Describe el problema en detalle..."></textarea><p class="field-error hidden text-xs text-error font-medium"></p></div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Prioridad</label><select required class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"><option value="">Seleccionar</option><option>Baja</option><option>Media</option><option>Alta</option><option>Crítica</option></select><p class="field-error hidden text-xs text-error font-medium"></p></div>
+                <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Categoría</label><select class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"><option>Bug</option><option>Feature</option><option>Soporte</option><option>Consulta</option></select></div>
+            </div>
+            <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Asignar a</label><select class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"><option>Sin asignar</option><option>Alex Chen</option><option>Maria Santos</option><option>Carlos Ruiz</option><option>Diego Torres</option></select></div>
+            <div class="flex gap-3 pt-2">
+                <button type="button" onclick="Modal.close('modal-create-ticket')" class="flex-1 py-3 bg-surface-container-low text-secondary rounded-lg font-semibold text-sm hover:bg-surface-container transition-colors">Cancelar</button>
+                <button type="submit" class="flex-1 py-3 bg-primary text-on-primary rounded-lg font-bold text-sm hover:opacity-90 transition-opacity">Crear Ticket</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Ticket Detail Drawer -->
+<div id="drawer-ticket-detail" class="hidden fixed inset-0 z-[100]">
+    <div class="drawer-backdrop absolute inset-0 bg-black/40" onclick="Drawer.close('drawer-ticket-detail')"></div>
+    <div class="drawer-panel absolute right-0 top-0 h-full w-full max-w-xl bg-surface-container-lowest shadow-2xl border-l border-outline-variant/15 overflow-y-auto">
+        <div class="sticky top-0 bg-surface-container-lowest z-10 flex justify-between items-center p-6 border-b border-outline-variant/10">
+            <div class="flex items-center gap-3">
+                <span class="text-xs font-mono font-bold text-primary bg-primary-fixed/30 px-2 py-1 rounded">#TK-2847</span>
+                <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-red-100 text-red-700">Crítica</span>
+                <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-100 text-blue-700">Abierto</span>
+            </div>
+            <button onclick="Drawer.close('drawer-ticket-detail')" class="p-1 hover:bg-surface-container-low rounded-lg transition-colors"><span class="material-symbols-outlined">close</span></button>
+        </div>
+        <div class="p-6 space-y-6">
+            <div>
+                <h3 class="text-xl font-extrabold headline mb-2">Error al procesar pagos con Stripe</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">Los pagos con tarjeta de crédito están fallando desde ayer por la tarde. El error devuelve un código 402 con el mensaje "card_declined" incluso para tarjetas de prueba. Parece ser un problema con la configuración del webhook de Stripe.</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 p-4 bg-surface-container-low rounded-xl">
+                <div><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Asignado a</span><div class="flex items-center gap-2 mt-1.5"><img class="w-6 h-6 rounded-full" src="https://ui-avatars.com/api/?name=AC&background=1e3a8a&color=fff&size=48" alt=""/><span class="text-sm font-medium">Alex Chen</span></div></div>
+                <div><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Creado por</span><div class="flex items-center gap-2 mt-1.5"><img class="w-6 h-6 rounded-full" src="https://ui-avatars.com/api/?name=MS&background=4059aa&color=fff&size=48" alt=""/><span class="text-sm font-medium">Maria Santos</span></div></div>
+                <div><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Creado</span><p class="text-sm font-medium mt-1.5">15 Jun 2026 14:32</p></div>
+                <div><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Actualizado</span><p class="text-sm font-medium mt-1.5">15 Jun 2026 16:45</p></div>
+            </div>
+
+            <!-- Timeline -->
+            <div>
+                <h4 class="text-sm font-bold mb-4">Actividad del Ticket</h4>
+                <div class="space-y-4">
+                    <div class="flex gap-3"><div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-blue-600 text-sm">add_circle</span></div><div><p class="text-sm"><span class="font-bold">Maria Santos</span> creó el ticket</p><p class="text-xs text-on-surface-variant">15 Jun 2026 14:32</p></div></div>
+                    <div class="flex gap-3"><div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-amber-600 text-sm">person_add</span></div><div><p class="text-sm"><span class="font-bold">Sistema</span> asignó a <span class="font-bold">Alex Chen</span></p><p class="text-xs text-on-surface-variant">15 Jun 2026 14:33</p></div></div>
+                    <div class="flex gap-3"><div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-secondary text-sm">chat_bubble</span></div><div class="flex-1"><p class="text-sm"><span class="font-bold">Alex Chen</span> comentó:</p><div class="mt-2 p-3 bg-surface-container-low rounded-lg text-sm text-on-surface-variant">Estoy revisando los logs de Stripe. Parece que la API key de producción fue rotada ayer sin actualizar la variable de entorno en el servidor.</div><p class="text-xs text-on-surface-variant mt-1">15 Jun 2026 15:10</p></div></div>
+                    <div class="flex gap-3"><div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-primary text-sm">label</span></div><div><p class="text-sm"><span class="font-bold">Alex Chen</span> cambió prioridad a <span class="text-red-600 font-bold">Crítica</span></p><p class="text-xs text-on-surface-variant">15 Jun 2026 15:15</p></div></div>
+                </div>
+            </div>
+
+            <!-- Add Comment -->
+            <div class="border-t border-outline-variant/10 pt-4">
+                <textarea rows="3" class="w-full px-4 py-3 bg-surface-container-low border-0 rounded-lg text-sm resize-none focus:ring-2 ring-surface-tint" placeholder="Escribe un comentario..."></textarea>
+                <div class="flex justify-between items-center mt-3">
+                    <div class="flex gap-2">
+                        <select class="bg-surface-container-low border-none rounded-lg py-2 px-3 text-xs font-semibold text-secondary">
+                            <option>Cambiar estado</option><option>En Progreso</option><option>Resuelto</option><option>Cerrado</option>
+                        </select>
+                    </div>
+                    <button onclick="Toast.show('Comentario agregado','success')" class="px-4 py-2 bg-primary text-white rounded-lg text-xs font-bold hover:opacity-90 transition-opacity">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../assets/js/core.js"></script>
+<script>
+function filterTicketStatus(status) {
+    document.querySelectorAll('#tickets-table tbody tr').forEach(row => {
+        const st = row.querySelector('td:nth-child(4) span')?.textContent.trim();
+        row.style.display = (!status || st === status) ? '' : 'none';
+    });
+    const btns = document.querySelectorAll('.flex.flex-wrap.gap-2 > button');
+    btns.forEach(b => { b.className = b.className.replace('bg-primary text-white','bg-surface-container-low text-secondary'); });
+    event?.target?.classList?.replace('bg-surface-container-low','bg-primary');
+    event?.target?.classList?.replace('text-secondary','text-white');
+}
+function filterTicketPriority(priority) {
+    document.querySelectorAll('#tickets-table tbody tr').forEach(row => {
+        const p = row.querySelector('td:nth-child(3) span')?.textContent.trim();
+        row.style.display = (!priority || p === priority) ? '' : 'none';
+    });
+}
+</script>
+</body>
+</html>

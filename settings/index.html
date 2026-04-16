@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Centro de Comando - Configuración</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-highest":"#e0e3e5","tertiary-fixed-dim":"#ffb691","outline-variant":"#c5c5d3","primary-fixed-dim":"#b6c4ff","primary":"#00236f","on-surface-variant":"#444651","on-error":"#ffffff","on-secondary-fixed-variant":"#3a485b","secondary":"#515f74","tertiary":"#4b1c00","surface-container-high":"#e6e8ea","secondary-fixed-dim":"#b9c7df","on-primary-container":"#90a8ff","outline":"#757682","on-primary-fixed-variant":"#264191","surface-bright":"#f7f9fb","on-primary":"#ffffff","on-tertiary-fixed-variant":"#773205","error":"#ba1a1a","tertiary-fixed":"#ffdbcb","primary-container":"#1e3a8a","surface-container":"#eceef0","on-secondary-container":"#57657a","surface-container-lowest":"#ffffff","tertiary-container":"#6e2c00","on-tertiary-container":"#f39461","surface-tint":"#4059aa","secondary-container":"#d5e3fc","surface":"#f7f9fb","on-error-container":"#93000a","surface-variant":"#e0e3e5","inverse-on-surface":"#eff1f3","error-container":"#ffdad6","on-tertiary-fixed":"#341100","inverse-primary":"#b6c4ff","on-primary-fixed":"#00164e","on-surface":"#191c1e","primary-fixed":"#dce1ff","on-background":"#191c1e","surface-container-low":"#f2f4f6","inverse-surface":"#2d3133","on-secondary":"#ffffff","secondary-fixed":"#d5e3fc","background":"#f7f9fb","surface-dim":"#d8dadc","on-secondary-fixed":"#0d1c2e","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},fontFamily:{headline:["Manrope"],body:["Inter"],label:["Inter"]}}}}</script>
+    <link rel="stylesheet" href="../assets/css/styles.css"/>
+    <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}body{font-family:'Inter',sans-serif}h1,h2,h3,.headline{font-family:'Manrope',sans-serif}.tab-btn.active{color:#00236f;border-color:#00236f;font-weight:700}.tab-content{display:none}.tab-content.active{display:block}</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<div id="sidebar-overlay" class="hidden fixed inset-0 bg-black/40 z-50 lg:hidden" onclick="Sidebar.closeMobile()"></div>
+
+<!-- Sidebar -->
+<aside id="sidebar" class="w-64 h-screen fixed left-0 top-0 bg-[#d8dadc] flex flex-col border-r border-slate-200/15 font-['Manrope'] antialiased tracking-tight z-50">
+    <div class="px-6 py-6 flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white flex-shrink-0"><span class="material-symbols-outlined">architecture</span></div><div class="sidebar-brand-text"><h1 class="text-xl font-bold text-[#191c1e] leading-none">The Editorial</h1><p class="text-[10px] uppercase tracking-widest text-on-surface-variant mt-1">Centro de Comando</p></div></div>
+    <nav class="flex-1 mt-2 space-y-1 overflow-y-auto no-scrollbar">
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../dashboard/index.html"><span class="material-symbols-outlined">dashboard</span><span class="text-sm font-medium sidebar-text">Panel de Control</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../user_management/index.html"><span class="material-symbols-outlined">group</span><span class="text-sm font-medium sidebar-text">Gestión de Usuarios</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../ticket_management/index.html"><span class="material-symbols-outlined">confirmation_number</span><span class="text-sm font-medium sidebar-text">Tickets</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../payment_systems/index.html"><span class="material-symbols-outlined">account_balance</span><span class="text-sm font-medium sidebar-text">Sistemas de Pago</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../payment_history/index.html"><span class="material-symbols-outlined">receipt_long</span><span class="text-sm font-medium sidebar-text">Historial de Pagos</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../reports_analytics/index.html"><span class="material-symbols-outlined">monitoring</span><span class="text-sm font-medium sidebar-text">Reportes y Análisis</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../products/index.html"><span class="material-symbols-outlined">inventory_2</span><span class="text-sm font-medium sidebar-text">Productos</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../inbox/index.html"><span class="material-symbols-outlined">inbox</span><span class="text-sm font-medium sidebar-text">Mensajería</span></a>
+    </nav>
+    <div class="px-6 py-5 border-t border-black/5 sidebar-bottom-section"><div class="space-y-1">
+        <a class="flex items-center gap-3 border-l-4 border-[#00236f] text-[#00236f] font-bold py-2 -ml-6 pl-5" href="../settings/index.html"><span class="material-symbols-outlined">settings</span><span class="text-sm sidebar-text">Configuración</span></a>
+        <button data-toggle-dark class="flex items-center gap-3 text-[#444651] py-2 hover:text-[#00236f] transition-colors w-full text-left"><span class="material-symbols-outlined" data-dark-icon>dark_mode</span><span class="text-sm font-medium sidebar-text">Modo Oscuro</span></button>
+        <a class="flex items-center gap-3 text-[#444651] py-2 hover:text-error transition-colors" href="../login/index.html"><span class="material-symbols-outlined">logout</span><span class="text-sm font-medium sidebar-text">Cerrar Sesión</span></a></div></div>
+</aside>
+
+<!-- Header -->
+<header id="top-header" class="fixed top-0 right-0 left-64 z-40 flex justify-between items-center px-8 h-16 bg-[#f7f9fb]/80 backdrop-blur-xl text-sm border-b border-outline-variant/10">
+    <div class="flex items-center gap-6"><button id="sidebar-toggle" class="lg:hidden p-2 text-secondary hover:bg-surface-container-low rounded-lg"><span class="material-symbols-outlined">menu</span></button><h2 class="text-lg font-extrabold headline hidden sm:block">Configuración</h2></div>
+    <div class="flex items-center gap-3">
+        <button class="p-2 text-secondary hover:bg-surface-container-low rounded-full transition-colors relative"><span class="material-symbols-outlined">notifications</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface"></span></button>
+        <div class="h-8 w-[1px] bg-outline-variant/30 mx-1"></div>
+        <div class="relative" id="user-menu-toggle"><div class="flex items-center gap-3 cursor-pointer"><div class="text-right hidden sm:block"><p class="text-xs font-bold text-on-surface">Alex Chen</p><p class="text-[10px] text-secondary">Administrador</p></div><img class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm ring-1 ring-black/5" alt="Avatar" src="https://ui-avatars.com/api/?name=Alex+Chen&background=1e3a8a&color=fff&size=80"/></div>
+            <div id="user-menu-dropdown" class="hidden absolute right-0 top-12 w-56 bg-surface-container-lowest rounded-xl shadow-2xl border border-outline-variant/15 py-2 z-50"><div class="px-4 py-3 border-b border-outline-variant/10"><p class="text-sm font-bold text-on-surface">Alex Chen</p><p class="text-xs text-secondary">alex.chen@empresa.com</p></div><a href="../profile/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-lg">person</span>Mi Perfil</a><a href="../settings/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-lg">settings</span>Configuración</a><div class="border-t border-outline-variant/10 my-1"></div><a href="../login/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-error hover:bg-error-container/30 transition-colors"><span class="material-symbols-outlined text-lg">logout</span>Cerrar Sesión</a></div>
+        </div>
+    </div>
+</header>
+
+<main id="main-content" class="ml-64 pt-24 pb-12 px-8 min-h-screen transition-all">
+<div class="max-w-4xl mx-auto animate-fade-in">
+
+    <div class="mb-8">
+        <div class="flex items-center gap-2 text-xs font-medium text-on-surface-variant uppercase tracking-widest mb-2"><span>Centro de Comando</span><span class="material-symbols-outlined text-[12px]">chevron_right</span><span class="text-primary font-bold">Configuración</span></div>
+        <h2 class="text-4xl font-extrabold tracking-tight text-on-surface headline">Configuración del Sistema</h2>
+        <p class="text-on-surface-variant mt-2">Personaliza el comportamiento y apariencia de la plataforma.</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex gap-1 border-b border-outline-variant/15 mb-8 overflow-x-auto">
+        <button class="tab-btn active px-5 py-3 text-sm font-semibold text-secondary border-b-2 border-transparent transition-colors whitespace-nowrap" onclick="switchTab('general')"><span class="material-symbols-outlined text-sm align-text-bottom mr-1">tune</span>General</button>
+        <button class="tab-btn px-5 py-3 text-sm font-semibold text-secondary border-b-2 border-transparent transition-colors whitespace-nowrap" onclick="switchTab('security')"><span class="material-symbols-outlined text-sm align-text-bottom mr-1">shield</span>Seguridad</button>
+        <button class="tab-btn px-5 py-3 text-sm font-semibold text-secondary border-b-2 border-transparent transition-colors whitespace-nowrap" onclick="switchTab('notifications')"><span class="material-symbols-outlined text-sm align-text-bottom mr-1">notifications</span>Notificaciones</button>
+        <button class="tab-btn px-5 py-3 text-sm font-semibold text-secondary border-b-2 border-transparent transition-colors whitespace-nowrap" onclick="switchTab('api')"><span class="material-symbols-outlined text-sm align-text-bottom mr-1">code</span>API</button>
+        <button class="tab-btn px-5 py-3 text-sm font-semibold text-secondary border-b-2 border-transparent transition-colors whitespace-nowrap" onclick="switchTab('appearance')"><span class="material-symbols-outlined text-sm align-text-bottom mr-1">palette</span>Apariencia</button>
+    </div>
+
+    <!-- General Tab -->
+    <div id="tab-general" class="tab-content active">
+        <form class="space-y-6" onsubmit="event.preventDefault();Toast.show('Configuración guardada','success')">
+            <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 space-y-5">
+                <h3 class="text-sm font-extrabold headline">Información del Sitio</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Nombre del sitio</label><input type="text" value="The Editorial Command Center" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"/></div>
+                    <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">URL del sitio</label><input type="url" value="https://admin.editorial.com" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"/></div>
+                </div>
+                <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Descripción</label><textarea rows="3" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm resize-none">Centro de administración editorial con herramientas de gestión avanzada.</textarea></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Email de contacto</label><input type="email" value="admin@editorial.com" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"/></div>
+                    <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Zona horaria</label><select class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"><option>America/Mexico_City (UTC-6)</option><option>America/New_York (UTC-5)</option><option>Europe/Madrid (UTC+1)</option><option>America/Buenos_Aires (UTC-3)</option></select></div>
+                </div>
+                <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Idioma predeterminado</label><select class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"><option>Español (es-MX)</option><option>English (en-US)</option><option>Português (pt-BR)</option></select></div>
+            </div>
+            <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 space-y-5">
+                <h3 class="text-sm font-extrabold headline">Mantenimiento</h3>
+                <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div><p class="text-sm font-semibold">Modo mantenimiento</p><p class="text-xs text-on-surface-variant">Muestra una página de mantenimiento a los visitantes</p></div><div class="toggle-switch" onclick="this.classList.toggle('active')"></div></div>
+                <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div><p class="text-sm font-semibold">Registro de nuevos usuarios</p><p class="text-xs text-on-surface-variant">Permite que los usuarios se registren</p></div><div class="toggle-switch active" onclick="this.classList.toggle('active')"></div></div>
+            </div>
+            <div class="flex justify-end"><button type="submit" class="px-6 py-3 bg-primary text-on-primary rounded-lg font-bold text-sm hover:opacity-90 transition-opacity">Guardar Cambios</button></div>
+        </form>
+    </div>
+
+    <!-- Security Tab -->
+    <div id="tab-security" class="tab-content">
+        <form class="space-y-6" onsubmit="event.preventDefault();Toast.show('Configuración de seguridad guardada','success')">
+            <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 space-y-5">
+                <h3 class="text-sm font-extrabold headline">Autenticación</h3>
+                <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div><p class="text-sm font-semibold">2FA obligatorio</p><p class="text-xs text-on-surface-variant">Requiere autenticación de dos factores para todos</p></div><div class="toggle-switch active" onclick="this.classList.toggle('active')"></div></div>
+                <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div><p class="text-sm font-semibold">Login con SSO</p><p class="text-xs text-on-surface-variant">Permitir inicio de sesión con Google / GitHub</p></div><div class="toggle-switch active" onclick="this.classList.toggle('active')"></div></div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Expiración de sesión</label><select class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"><option>30 minutos</option><option>1 hora</option><option>4 horas</option><option>24 horas</option></select></div>
+                    <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Intentos de login máx.</label><input type="number" value="5" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"/></div>
+                </div>
+            </div>
+            <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 space-y-5">
+                <h3 class="text-sm font-extrabold headline">Política de Contraseñas</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div><p class="text-sm font-semibold">Mínimo 8 caracteres</p></div><div class="toggle-switch active" onclick="this.classList.toggle('active')"></div></div>
+                    <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div><p class="text-sm font-semibold">Requiere mayúsculas y números</p></div><div class="toggle-switch active" onclick="this.classList.toggle('active')"></div></div>
+                    <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div><p class="text-sm font-semibold">Requiere caracteres especiales</p></div><div class="toggle-switch" onclick="this.classList.toggle('active')"></div></div>
+                </div>
+                <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Forzar cambio cada (días)</label><input type="number" value="90" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"/></div>
+            </div>
+            <div class="flex justify-end"><button type="submit" class="px-6 py-3 bg-primary text-on-primary rounded-lg font-bold text-sm hover:opacity-90 transition-opacity">Guardar Cambios</button></div>
+        </form>
+    </div>
+
+    <!-- Notifications Tab -->
+    <div id="tab-notifications" class="tab-content">
+        <form class="space-y-6" onsubmit="event.preventDefault();Toast.show('Preferencias de notificación guardadas','success')">
+            <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 space-y-5">
+                <h3 class="text-sm font-extrabold headline">Canales de Notificación</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">email</span><div><p class="text-sm font-semibold">Email</p><p class="text-xs text-on-surface-variant">admin@editorial.com</p></div></div><div class="toggle-switch active" onclick="this.classList.toggle('active')"></div></div>
+                    <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-indigo-600">chat</span><div><p class="text-sm font-semibold">Slack</p><p class="text-xs text-on-surface-variant">#admin-notifications</p></div></div><div class="toggle-switch active" onclick="this.classList.toggle('active')"></div></div>
+                    <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-green-600">phone_android</span><div><p class="text-sm font-semibold">Push (App Móvil)</p><p class="text-xs text-on-surface-variant">Dispositivo de Alex</p></div></div><div class="toggle-switch" onclick="this.classList.toggle('active')"></div></div>
+                </div>
+            </div>
+            <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 space-y-5">
+                <h3 class="text-sm font-extrabold headline">Eventos</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div><p class="text-sm font-semibold">Nuevo usuario registrado</p></div><div class="toggle-switch active" onclick="this.classList.toggle('active')"></div></div>
+                    <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div><p class="text-sm font-semibold">Pago recibido</p></div><div class="toggle-switch active" onclick="this.classList.toggle('active')"></div></div>
+                    <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div><p class="text-sm font-semibold">Ticket urgente creado</p></div><div class="toggle-switch active" onclick="this.classList.toggle('active')"></div></div>
+                    <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div><p class="text-sm font-semibold">Error del sistema</p></div><div class="toggle-switch active" onclick="this.classList.toggle('active')"></div></div>
+                    <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div><p class="text-sm font-semibold">Reporte semanal automático</p></div><div class="toggle-switch" onclick="this.classList.toggle('active')"></div></div>
+                </div>
+            </div>
+            <div class="flex justify-end"><button type="submit" class="px-6 py-3 bg-primary text-on-primary rounded-lg font-bold text-sm hover:opacity-90 transition-opacity">Guardar Cambios</button></div>
+        </form>
+    </div>
+
+    <!-- API Tab -->
+    <div id="tab-api" class="tab-content">
+        <div class="space-y-6">
+            <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 space-y-5">
+                <h3 class="text-sm font-extrabold headline">Claves de API</h3>
+                <div class="p-4 bg-surface-container-low rounded-xl">
+                    <div class="flex justify-between items-center mb-2"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">API Key (Producción)</span><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-700">Activa</span></div>
+                    <div class="flex"><input type="password" value="sk_live_a1b2c3d4e5f6g7h8i9j0" class="flex-1 px-4 py-3 bg-surface-container border-0 rounded-l-lg text-sm font-mono" id="api-key-prod"/><button type="button" onclick="const el=document.getElementById('api-key-prod');el.type=el.type==='password'?'text':'password'" class="px-4 bg-surface-container-high text-secondary rounded-r-lg text-xs font-bold"><span class="material-symbols-outlined text-sm">visibility</span></button></div>
+                    <p class="text-xs text-on-surface-variant mt-2">Creada: 1 Ene 2026 · Último uso: Hace 2 min</p>
+                </div>
+                <div class="p-4 bg-surface-container-low rounded-xl">
+                    <div class="flex justify-between items-center mb-2"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">API Key (Test)</span><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-700">Test</span></div>
+                    <div class="flex"><input type="password" value="sk_test_z9y8x7w6v5u4t3s2r1q0" class="flex-1 px-4 py-3 bg-surface-container border-0 rounded-l-lg text-sm font-mono" id="api-key-test"/><button type="button" onclick="const el=document.getElementById('api-key-test');el.type=el.type==='password'?'text':'password'" class="px-4 bg-surface-container-high text-secondary rounded-r-lg text-xs font-bold"><span class="material-symbols-outlined text-sm">visibility</span></button></div>
+                </div>
+                <button onclick="Toast.show('Nueva API key generada','success')" class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-low text-secondary rounded-lg font-semibold text-sm hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm">add</span>Generar nueva clave</button>
+            </div>
+            <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 space-y-5">
+                <h3 class="text-sm font-extrabold headline">Rate Limiting</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Requests / minuto</label><input type="number" value="1000" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"/></div>
+                    <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Requests / día</label><input type="number" value="100000" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"/></div>
+                </div>
+                <div class="flex justify-end"><button onclick="Toast.show('Rate limits actualizados','success')" class="px-6 py-3 bg-primary text-on-primary rounded-lg font-bold text-sm hover:opacity-90 transition-opacity">Guardar</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Appearance Tab -->
+    <div id="tab-appearance" class="tab-content">
+        <form class="space-y-6" onsubmit="event.preventDefault();Toast.show('Preferencias de apariencia guardadas','success')">
+            <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 space-y-5">
+                <h3 class="text-sm font-extrabold headline">Tema</h3>
+                <div class="grid grid-cols-3 gap-4">
+                    <label class="flex flex-col items-center gap-2 p-4 bg-surface-container-low rounded-xl cursor-pointer border-2 border-primary"><div class="w-full h-16 rounded-lg bg-white border border-outline-variant/20 flex items-end p-2"><div class="w-full h-2 bg-primary rounded"></div></div><div class="flex items-center gap-2"><input type="radio" name="theme" value="light" checked class="text-primary"/><span class="text-xs font-semibold">Claro</span></div></label>
+                    <label class="flex flex-col items-center gap-2 p-4 bg-surface-container-low rounded-xl cursor-pointer border-2 border-transparent hover:border-outline-variant"><div class="w-full h-16 rounded-lg bg-[#121416] border border-gray-700 flex items-end p-2"><div class="w-full h-2 bg-[#b6c4ff] rounded"></div></div><div class="flex items-center gap-2"><input type="radio" name="theme" value="dark" class="text-primary"/><span class="text-xs font-semibold">Oscuro</span></div></label>
+                    <label class="flex flex-col items-center gap-2 p-4 bg-surface-container-low rounded-xl cursor-pointer border-2 border-transparent hover:border-outline-variant"><div class="w-full h-16 rounded-lg bg-gradient-to-b from-white to-[#121416] border border-outline-variant/20 flex items-end p-2"><div class="w-full h-2 bg-primary rounded"></div></div><div class="flex items-center gap-2"><input type="radio" name="theme" value="auto" class="text-primary"/><span class="text-xs font-semibold">Auto</span></div></label>
+                </div>
+            </div>
+            <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 space-y-5">
+                <h3 class="text-sm font-extrabold headline">Personalización</h3>
+                <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div><p class="text-sm font-semibold">Sidebar compacto</p><p class="text-xs text-on-surface-variant">Reduce el ancho del menú lateral</p></div><div class="toggle-switch" onclick="this.classList.toggle('active')"></div></div>
+                <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div><p class="text-sm font-semibold">Animaciones</p><p class="text-xs text-on-surface-variant">Transiciones y efectos visuales</p></div><div class="toggle-switch active" onclick="this.classList.toggle('active')"></div></div>
+                <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Densidad de la UI</label><select class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"><option>Normal</option><option>Compacta</option><option>Cómoda</option></select></div>
+            </div>
+            <div class="flex justify-end"><button type="submit" class="px-6 py-3 bg-primary text-on-primary rounded-lg font-bold text-sm hover:opacity-90 transition-opacity">Guardar Cambios</button></div>
+        </form>
+    </div>
+
+</div>
+</main>
+
+<script src="../assets/js/core.js"></script>
+<script>
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+    document.getElementById('tab-' + tabId)?.classList.add('active');
+}
+</script>
+</body>
+</html>

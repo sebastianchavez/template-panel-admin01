@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Centro de Comando - Mensajería</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-highest":"#e0e3e5","tertiary-fixed-dim":"#ffb691","outline-variant":"#c5c5d3","primary-fixed-dim":"#b6c4ff","primary":"#00236f","on-surface-variant":"#444651","on-error":"#ffffff","on-secondary-fixed-variant":"#3a485b","secondary":"#515f74","tertiary":"#4b1c00","surface-container-high":"#e6e8ea","secondary-fixed-dim":"#b9c7df","on-primary-container":"#90a8ff","outline":"#757682","on-primary-fixed-variant":"#264191","surface-bright":"#f7f9fb","on-primary":"#ffffff","on-tertiary-fixed-variant":"#773205","error":"#ba1a1a","tertiary-fixed":"#ffdbcb","primary-container":"#1e3a8a","surface-container":"#eceef0","on-secondary-container":"#57657a","surface-container-lowest":"#ffffff","tertiary-container":"#6e2c00","on-tertiary-container":"#f39461","surface-tint":"#4059aa","secondary-container":"#d5e3fc","surface":"#f7f9fb","on-error-container":"#93000a","surface-variant":"#e0e3e5","inverse-on-surface":"#eff1f3","error-container":"#ffdad6","on-tertiary-fixed":"#341100","inverse-primary":"#b6c4ff","on-primary-fixed":"#00164e","on-surface":"#191c1e","primary-fixed":"#dce1ff","on-background":"#191c1e","surface-container-low":"#f2f4f6","inverse-surface":"#2d3133","on-secondary":"#ffffff","secondary-fixed":"#d5e3fc","background":"#f7f9fb","surface-dim":"#d8dadc","on-secondary-fixed":"#0d1c2e","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},fontFamily:{headline:["Manrope"],body:["Inter"],label:["Inter"]}}}}</script>
+    <link rel="stylesheet" href="../assets/css/styles.css"/>
+    <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}body{font-family:'Inter',sans-serif}h1,h2,h3,.headline{font-family:'Manrope',sans-serif}.mail-item{cursor:pointer;transition:background .15s}.mail-item:hover{background:rgba(0,35,111,.04)}.mail-item.active{background:rgba(0,35,111,.08);border-left:3px solid #00236f}.mail-item.unread .mail-sender{font-weight:700}.mail-item.unread .mail-subject{font-weight:600}</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<div id="sidebar-overlay" class="hidden fixed inset-0 bg-black/40 z-50 lg:hidden" onclick="Sidebar.closeMobile()"></div>
+
+<!-- Sidebar -->
+<aside id="sidebar" class="w-64 h-screen fixed left-0 top-0 bg-[#d8dadc] flex flex-col border-r border-slate-200/15 font-['Manrope'] antialiased tracking-tight z-50">
+    <div class="px-6 py-6 flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white flex-shrink-0"><span class="material-symbols-outlined">architecture</span></div><div class="sidebar-brand-text"><h1 class="text-xl font-bold text-[#191c1e] leading-none">The Editorial</h1><p class="text-[10px] uppercase tracking-widest text-on-surface-variant mt-1">Centro de Comando</p></div></div>
+    <nav class="flex-1 mt-2 space-y-1 overflow-y-auto no-scrollbar">
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../dashboard/index.html"><span class="material-symbols-outlined">dashboard</span><span class="text-sm font-medium sidebar-text">Panel de Control</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../user_management/index.html"><span class="material-symbols-outlined">group</span><span class="text-sm font-medium sidebar-text">Gestión de Usuarios</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../ticket_management/index.html"><span class="material-symbols-outlined">confirmation_number</span><span class="text-sm font-medium sidebar-text">Tickets</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../payment_systems/index.html"><span class="material-symbols-outlined">account_balance</span><span class="text-sm font-medium sidebar-text">Sistemas de Pago</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../payment_history/index.html"><span class="material-symbols-outlined">receipt_long</span><span class="text-sm font-medium sidebar-text">Historial de Pagos</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../reports_analytics/index.html"><span class="material-symbols-outlined">monitoring</span><span class="text-sm font-medium sidebar-text">Reportes y Análisis</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../products/index.html"><span class="material-symbols-outlined">inventory_2</span><span class="text-sm font-medium sidebar-text">Productos</span></a>
+        <a class="flex items-center gap-3 border-l-4 border-[#00236f] bg-[#f2f4f6]/50 text-[#191c1e] font-bold pl-4 py-3" href="../inbox/index.html"><span class="material-symbols-outlined">inbox</span><span class="text-sm sidebar-text">Mensajería</span></a>
+    </nav>
+    <div class="px-6 py-5 border-t border-black/5 sidebar-bottom-section"><div class="space-y-1">
+        <a class="flex items-center gap-3 text-[#444651] py-2 hover:text-[#00236f] transition-colors" href="../settings/index.html"><span class="material-symbols-outlined">settings</span><span class="text-sm font-medium sidebar-text">Configuración</span></a>
+        <button data-toggle-dark class="flex items-center gap-3 text-[#444651] py-2 hover:text-[#00236f] transition-colors w-full text-left"><span class="material-symbols-outlined" data-dark-icon>dark_mode</span><span class="text-sm font-medium sidebar-text">Modo Oscuro</span></button>
+        <a class="flex items-center gap-3 text-[#444651] py-2 hover:text-error transition-colors" href="../login/index.html"><span class="material-symbols-outlined">logout</span><span class="text-sm font-medium sidebar-text">Cerrar Sesión</span></a></div></div>
+</aside>
+
+<!-- Header -->
+<header id="top-header" class="fixed top-0 right-0 left-64 z-40 flex justify-between items-center px-8 h-16 bg-[#f7f9fb]/80 backdrop-blur-xl text-sm border-b border-outline-variant/10">
+    <div class="flex items-center gap-6"><button id="sidebar-toggle" class="lg:hidden p-2 text-secondary hover:bg-surface-container-low rounded-lg"><span class="material-symbols-outlined">menu</span></button><h2 class="text-lg font-extrabold headline hidden sm:block">Mensajería</h2></div>
+    <div class="flex items-center gap-3">
+        <button class="p-2 text-secondary hover:bg-surface-container-low rounded-full transition-colors relative"><span class="material-symbols-outlined">notifications</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface"></span></button>
+        <div class="h-8 w-[1px] bg-outline-variant/30 mx-1"></div>
+        <div class="relative" id="user-menu-toggle"><div class="flex items-center gap-3 cursor-pointer"><div class="text-right hidden sm:block"><p class="text-xs font-bold text-on-surface">Alex Chen</p><p class="text-[10px] text-secondary">Administrador</p></div><img class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm ring-1 ring-black/5" alt="Avatar" src="https://ui-avatars.com/api/?name=Alex+Chen&background=1e3a8a&color=fff&size=80"/></div>
+            <div id="user-menu-dropdown" class="hidden absolute right-0 top-12 w-56 bg-surface-container-lowest rounded-xl shadow-2xl border border-outline-variant/15 py-2 z-50"><div class="px-4 py-3 border-b border-outline-variant/10"><p class="text-sm font-bold text-on-surface">Alex Chen</p><p class="text-xs text-secondary">alex.chen@empresa.com</p></div><a href="../profile/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-lg">person</span>Mi Perfil</a><a href="../settings/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-lg">settings</span>Configuración</a><div class="border-t border-outline-variant/10 my-1"></div><a href="../login/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-error hover:bg-error-container/30 transition-colors"><span class="material-symbols-outlined text-lg">logout</span>Cerrar Sesión</a></div>
+        </div>
+    </div>
+</header>
+
+<main id="main-content" class="ml-64 pt-16 min-h-screen transition-all">
+<div class="flex h-[calc(100vh-4rem)]">
+
+    <!-- Mail Folders Sidebar -->
+    <div class="w-56 border-r border-outline-variant/15 bg-surface-container-lowest flex flex-col shrink-0">
+        <div class="p-4">
+            <button onclick="Modal.open('modal-compose')" class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-primary text-on-primary rounded-xl font-bold text-sm hover:opacity-90 transition-opacity"><span class="material-symbols-outlined text-lg">edit</span>Nuevo Mensaje</button>
+        </div>
+        <nav class="flex-1 space-y-0.5 px-2">
+            <button onclick="setFolder(this,'inbox')" class="folder-btn active w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-semibold text-primary bg-primary/8 transition-colors text-left"><span class="material-symbols-outlined text-lg">inbox</span>Bandeja<span class="ml-auto text-xs bg-primary text-on-primary px-2 py-0.5 rounded-full font-bold">4</span></button>
+            <button onclick="setFolder(this,'sent')" class="folder-btn w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container-low transition-colors text-left"><span class="material-symbols-outlined text-lg">send</span>Enviados</button>
+            <button onclick="setFolder(this,'drafts')" class="folder-btn w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container-low transition-colors text-left"><span class="material-symbols-outlined text-lg">draft</span>Borradores<span class="ml-auto text-xs text-on-surface-variant font-bold">1</span></button>
+            <button onclick="setFolder(this,'starred')" class="folder-btn w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container-low transition-colors text-left"><span class="material-symbols-outlined text-lg">star</span>Destacados</button>
+            <button onclick="setFolder(this,'trash')" class="folder-btn w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container-low transition-colors text-left"><span class="material-symbols-outlined text-lg">delete</span>Papelera</button>
+        </nav>
+        <div class="p-4 border-t border-outline-variant/10">
+            <div class="text-[10px] text-on-surface-variant uppercase tracking-wider font-bold mb-2">Etiquetas</div>
+            <div class="space-y-2">
+                <div class="flex items-center gap-2 text-xs"><div class="w-2 h-2 rounded-full bg-red-500"></div>Urgente</div>
+                <div class="flex items-center gap-2 text-xs"><div class="w-2 h-2 rounded-full bg-blue-500"></div>Trabajo</div>
+                <div class="flex items-center gap-2 text-xs"><div class="w-2 h-2 rounded-full bg-green-500"></div>Personal</div>
+                <div class="flex items-center gap-2 text-xs"><div class="w-2 h-2 rounded-full bg-amber-500"></div>Finanzas</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message List -->
+    <div class="w-80 border-r border-outline-variant/15 bg-surface flex flex-col shrink-0">
+        <div class="p-3 border-b border-outline-variant/10"><div class="relative"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-lg">search</span><input type="text" placeholder="Buscar mensajes..." class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low border-0 rounded-lg text-xs focus:ring-1 focus:ring-primary"/></div></div>
+        <div class="flex-1 overflow-y-auto" id="mail-list">
+            <!-- Mail 1 - unread, active -->
+            <div class="mail-item active unread p-4 border-b border-outline-variant/10" onclick="selectMail(this,0)">
+                <div class="flex items-start gap-3"><img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=Marketing&background=dc2626&color=fff&size=60" alt=""/><div class="flex-1 min-w-0"><div class="flex justify-between items-center"><span class="mail-sender text-xs text-on-surface truncate">Equipo de Marketing</span><span class="text-[10px] text-on-surface-variant whitespace-nowrap ml-2">10:15 AM</span></div><p class="mail-subject text-xs text-on-surface truncate mt-0.5">Campaña Q1 2026 — Revisión Final</p><p class="text-[10px] text-on-surface-variant truncate mt-0.5">Adjunto el plan de campaña actualizado para...</p></div></div>
+                <div class="flex gap-1 mt-2 ml-11"><span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-red-100 text-red-700">Urgente</span><span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-blue-100 text-blue-700">Trabajo</span></div>
+            </div>
+            <!-- Mail 2 - unread -->
+            <div class="mail-item unread p-4 border-b border-outline-variant/10" onclick="selectMail(this,1)">
+                <div class="flex items-start gap-3"><img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=Sofia+Reyes&background=7c3aed&color=fff&size=60" alt=""/><div class="flex-1 min-w-0"><div class="flex justify-between items-center"><span class="mail-sender text-xs text-on-surface truncate">Sofía Reyes</span><span class="text-[10px] text-on-surface-variant whitespace-nowrap ml-2">9:42 AM</span></div><p class="mail-subject text-xs text-on-surface truncate mt-0.5">Re: Integración API pagos</p><p class="text-[10px] text-on-surface-variant truncate mt-0.5">Listo, ya lo revisé y creo que podemos...</p></div></div>
+            </div>
+            <!-- Mail 3 - unread -->
+            <div class="mail-item unread p-4 border-b border-outline-variant/10" onclick="selectMail(this,2)">
+                <div class="flex items-start gap-3"><img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=RRHH&background=059669&color=fff&size=60" alt=""/><div class="flex-1 min-w-0"><div class="flex justify-between items-center"><span class="mail-sender text-xs text-on-surface truncate">Recursos Humanos</span><span class="text-[10px] text-on-surface-variant whitespace-nowrap ml-2">8:00 AM</span></div><p class="mail-subject text-xs text-on-surface truncate mt-0.5">Días festivos Enero 2026</p><p class="text-[10px] text-on-surface-variant truncate mt-0.5">Les informamos los días no laborables del...</p></div></div>
+            </div>
+            <!-- Mail 4 - unread -->
+            <div class="mail-item unread p-4 border-b border-outline-variant/10" onclick="selectMail(this,3)">
+                <div class="flex items-start gap-3"><img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=Carlos+M&background=d97706&color=fff&size=60" alt=""/><div class="flex-1 min-w-0"><div class="flex justify-between items-center"><span class="mail-sender text-xs text-on-surface truncate">Carlos Martínez</span><span class="text-[10px] text-on-surface-variant whitespace-nowrap ml-2">Ayer</span></div><p class="mail-subject text-xs text-on-surface truncate mt-0.5">Propuesta de diseño del dashboard</p><p class="text-[10px] text-on-surface-variant truncate mt-0.5">Hola Alex, te comparto los mockups...</p></div></div>
+                <div class="flex gap-1 mt-2 ml-11"><span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-amber-100 text-amber-700">Finanzas</span></div>
+            </div>
+            <!-- Mail 5 - read -->
+            <div class="mail-item p-4 border-b border-outline-variant/10" onclick="selectMail(this,4)">
+                <div class="flex items-start gap-3"><img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=Sistema&background=6b7280&color=fff&size=60" alt=""/><div class="flex-1 min-w-0"><div class="flex justify-between items-center"><span class="mail-sender text-xs text-on-surface truncate">Sistema</span><span class="text-[10px] text-on-surface-variant whitespace-nowrap ml-2">25 Dic</span></div><p class="mail-subject text-xs text-on-surface truncate mt-0.5">Reporte semanal generado</p><p class="text-[10px] text-on-surface-variant truncate mt-0.5">Tu reporte semanal de métricas se ha...</p></div></div>
+            </div>
+            <!-- Mail 6 - read -->
+            <div class="mail-item p-4 border-b border-outline-variant/10" onclick="selectMail(this,5)">
+                <div class="flex items-start gap-3"><img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=Ana+Lopez&background=2563eb&color=fff&size=60" alt=""/><div class="flex-1 min-w-0"><div class="flex justify-between items-center"><span class="mail-sender text-xs text-on-surface truncate">Ana López</span><span class="text-[10px] text-on-surface-variant whitespace-nowrap ml-2">24 Dic</span></div><p class="mail-subject text-xs text-on-surface truncate mt-0.5">Acceso al panel de proveedores</p><p class="text-[10px] text-on-surface-variant truncate mt-0.5">Necesito acceso al módulo de proveedores para...</p></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message Preview -->
+    <div class="flex-1 flex flex-col bg-surface-container-lowest" id="mail-preview">
+        <!-- Mail Header -->
+        <div class="p-6 border-b border-outline-variant/10">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-lg font-extrabold headline" id="preview-subject">Campaña Q1 2026 — Revisión Final</h3>
+                    <div class="flex items-center gap-3 mt-2">
+                        <img class="w-10 h-10 rounded-full" id="preview-avatar" src="https://ui-avatars.com/api/?name=Marketing&background=dc2626&color=fff&size=80" alt=""/>
+                        <div>
+                            <p class="text-sm font-bold" id="preview-sender">Equipo de Marketing</p>
+                            <p class="text-xs text-on-surface-variant" id="preview-email">marketing@editorial.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs text-on-surface-variant" id="preview-date">Hoy, 10:15 AM</span>
+                    <button class="p-2 text-secondary hover:bg-surface-container-low rounded-full" title="Destacar"><span class="material-symbols-outlined text-lg">star</span></button>
+                    <button class="p-2 text-secondary hover:bg-surface-container-low rounded-full" title="Archivar"><span class="material-symbols-outlined text-lg">archive</span></button>
+                    <button onclick="Toast.show('Mensaje eliminado','info')" class="p-2 text-secondary hover:text-error hover:bg-error-container/20 rounded-full" title="Eliminar"><span class="material-symbols-outlined text-lg">delete</span></button>
+                </div>
+            </div>
+        </div>
+        <!-- Mail Body -->
+        <div class="flex-1 overflow-y-auto p-6" id="preview-body">
+            <div class="prose prose-sm max-w-none text-sm text-on-surface leading-relaxed">
+                <p>Hola Alex,</p>
+                <p>Adjunto el plan de campaña actualizado para Q1 2026. Hemos incorporado los cambios que discutimos en la última reunión:</p>
+                <ul class="list-disc pl-4 space-y-1 my-3">
+                    <li>Presupuesto redistribuido: 40% digital, 30% contenido, 30% eventos</li>
+                    <li>Nuevos KPIs de engagement para redes sociales</li>
+                    <li>Timeline detallado de lanzamientos mensuales</li>
+                    <li>Propuesta de colaboración con influencers del sector editorial</li>
+                </ul>
+                <p>Necesitamos tu aprobación antes del <strong>viernes 3 de enero</strong> para iniciar la implementación. ¿Podemos agendar una llamada rápida mañana para resolver dudas?</p>
+                <p class="mt-4">Saludos,<br/><strong>Equipo de Marketing</strong></p>
+            </div>
+            <!-- Attachment -->
+            <div class="mt-6 p-4 rounded-xl bg-surface-container-low border border-outline-variant/10">
+                <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-3">Adjuntos (2)</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/10"><span class="material-symbols-outlined text-red-500">picture_as_pdf</span><div class="flex-1 min-w-0"><p class="text-xs font-semibold truncate">Plan_Campaña_Q1_2026.pdf</p><p class="text-[10px] text-on-surface-variant">2.4 MB</p></div><button class="material-symbols-outlined text-secondary hover:text-primary text-lg">download</button></div>
+                    <div class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/10"><span class="material-symbols-outlined text-green-600">table_chart</span><div class="flex-1 min-w-0"><p class="text-xs font-semibold truncate">Presupuesto_Marketing.xlsx</p><p class="text-[10px] text-on-surface-variant">856 KB</p></div><button class="material-symbols-outlined text-secondary hover:text-primary text-lg">download</button></div>
+                </div>
+            </div>
+        </div>
+        <!-- Reply bar -->
+        <div class="p-4 border-t border-outline-variant/10 bg-surface">
+            <div class="flex gap-3">
+                <input type="text" placeholder="Escribe una respuesta rápida..." class="flex-1 px-4 py-3 bg-surface-container-low border-0 rounded-xl text-sm focus:ring-1 focus:ring-primary"/>
+                <button class="p-3 bg-primary text-on-primary rounded-xl hover:opacity-90 transition-opacity" onclick="Toast.show('Respuesta enviada','success')"><span class="material-symbols-outlined">send</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Compose Modal -->
+<div id="modal-compose" class="modal-overlay hidden fixed inset-0 bg-black/50 z-[100] flex items-end sm:items-center justify-center p-4">
+    <div class="bg-surface-container-lowest rounded-2xl shadow-2xl w-full max-w-2xl animate-fade-in">
+        <div class="flex justify-between items-center px-6 py-4 border-b border-outline-variant/10">
+            <h3 class="text-sm font-extrabold headline">Nuevo Mensaje</h3>
+            <button onclick="Modal.close('modal-compose')" class="p-1 text-secondary hover:text-on-surface"><span class="material-symbols-outlined">close</span></button>
+        </div>
+        <form class="p-6 space-y-4" onsubmit="event.preventDefault();Modal.close('modal-compose');Toast.show('Mensaje enviado','success')">
+            <div class="space-y-3">
+                <div class="flex items-center gap-3 border-b border-outline-variant/10 pb-3"><label class="text-xs font-bold text-on-surface-variant w-12">Para:</label><input type="email" placeholder="destinatario@email.com" class="flex-1 border-0 p-0 text-sm focus:ring-0 bg-transparent" required/></div>
+                <div class="flex items-center gap-3 border-b border-outline-variant/10 pb-3"><label class="text-xs font-bold text-on-surface-variant w-12">CC:</label><input type="email" placeholder="cc@email.com" class="flex-1 border-0 p-0 text-sm focus:ring-0 bg-transparent"/></div>
+                <div class="flex items-center gap-3 border-b border-outline-variant/10 pb-3"><label class="text-xs font-bold text-on-surface-variant w-12">Asunto:</label><input type="text" placeholder="Asunto del mensaje" class="flex-1 border-0 p-0 text-sm focus:ring-0 bg-transparent" required/></div>
+            </div>
+            <textarea rows="10" placeholder="Escribe tu mensaje aquí..." class="w-full px-4 py-3 bg-surface-container-low border-0 rounded-xl text-sm resize-none focus:ring-1 focus:ring-primary"></textarea>
+            <div class="flex justify-between items-center">
+                <div class="flex gap-2">
+                    <button type="button" class="p-2 text-secondary hover:text-primary rounded-lg"><span class="material-symbols-outlined text-lg">attach_file</span></button>
+                    <button type="button" class="p-2 text-secondary hover:text-primary rounded-lg"><span class="material-symbols-outlined text-lg">image</span></button>
+                    <button type="button" class="p-2 text-secondary hover:text-primary rounded-lg"><span class="material-symbols-outlined text-lg">mood</span></button>
+                </div>
+                <div class="flex gap-3">
+                    <button type="button" onclick="Modal.close('modal-compose');Toast.show('Borrador guardado','info')" class="px-4 py-2.5 text-sm font-semibold text-on-surface-variant hover:bg-surface-container-low rounded-lg">Guardar borrador</button>
+                    <button type="submit" class="px-6 py-2.5 bg-primary text-on-primary rounded-lg font-bold text-sm hover:opacity-90 transition-opacity flex items-center gap-2"><span class="material-symbols-outlined text-lg">send</span>Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</main>
+
+<script src="../assets/js/core.js"></script>
+<script>
+const mails = [
+    { subject:'Campaña Q1 2026 — Revisión Final', sender:'Equipo de Marketing', email:'marketing@editorial.com', date:'Hoy, 10:15 AM', avatar:'https://ui-avatars.com/api/?name=Marketing&background=dc2626&color=fff&size=80', body:'<p>Hola Alex,</p><p>Adjunto el plan de campaña actualizado para Q1 2026. Hemos incorporado los cambios que discutimos en la última reunión:</p><ul class="list-disc pl-4 space-y-1 my-3"><li>Presupuesto redistribuido: 40% digital, 30% contenido, 30% eventos</li><li>Nuevos KPIs de engagement para redes sociales</li><li>Timeline detallado de lanzamientos mensuales</li><li>Propuesta de colaboración con influencers del sector editorial</li></ul><p>Necesitamos tu aprobación antes del <strong>viernes 3 de enero</strong> para iniciar la implementación. ¿Podemos agendar una llamada rápida mañana para resolver dudas?</p><p class="mt-4">Saludos,<br/><strong>Equipo de Marketing</strong></p>', attachments:true },
+    { subject:'Re: Integración API pagos', sender:'Sofía Reyes', email:'sofia.reyes@empresa.com', date:'Hoy, 9:42 AM', avatar:'https://ui-avatars.com/api/?name=Sofia+Reyes&background=7c3aed&color=fff&size=80', body:'<p>Hola Alex,</p><p>Listo, ya lo revisé y creo que podemos proceder con la integración de Stripe como pasarela principal. El endpoint de webhooks ya está configurado y probé con transacciones de prueba satisfactoriamente.</p><p>Solo necesito confirmación de DevOps para habilitar el ambiente de producción. ¿Puedes coordinar con el equipo?</p><p class="mt-4">Gracias,<br/><strong>Sofía Reyes</strong><br/>Lead Developer</p>' },
+    { subject:'Días festivos Enero 2026', sender:'Recursos Humanos', email:'rrhh@editorial.com', date:'Hoy, 8:00 AM', avatar:'https://ui-avatars.com/api/?name=RRHH&background=059669&color=fff&size=80', body:'<p>Estimado equipo,</p><p>Les informamos los días no laborables del mes de enero 2026:</p><ul class="list-disc pl-4 space-y-1 my-3"><li><strong>1 de enero</strong> — Año Nuevo</li><li><strong>6 de enero</strong> — Día de Reyes</li></ul><p>Les recordamos programar sus entregas considerando estas fechas. Cualquier duda estamos disponibles.</p><p class="mt-4">Atentamente,<br/><strong>Departamento de RRHH</strong></p>' },
+    { subject:'Propuesta de diseño del dashboard', sender:'Carlos Martínez', email:'carlos.m@empresa.com', date:'Ayer, 4:30 PM', avatar:'https://ui-avatars.com/api/?name=Carlos+M&background=d97706&color=fff&size=80', body:'<p>Hola Alex, te comparto los mockups del nuevo dashboard que estuvimos trabajando con el equipo de UX.</p><p>Incluimos:</p><ul class="list-disc pl-4 space-y-1 my-3"><li>Vista de métricas con gráficos interactivos</li><li>Panel de actividad reciente rediseñado</li><li>Nuevo sistema de notificaciones</li><li>Modo oscuro como lo solicitaste</li></ul><p>Los archivos están en el Drive compartido. Espero tu feedback.</p><p class="mt-4">Saludos,<br/><strong>Carlos Martínez</strong><br/>UI/UX Lead</p>' },
+    { subject:'Reporte semanal generado', sender:'Sistema', email:'noreply@editorial.com', date:'25 Dic, 6:00 AM', avatar:'https://ui-avatars.com/api/?name=Sistema&background=6b7280&color=fff&size=80', body:'<p>Tu reporte semanal de métricas se ha generado automáticamente.</p><div class="p-4 my-3 bg-surface-container-low rounded-lg"><p class="text-xs font-bold mb-2">Resumen de la semana:</p><ul class="text-xs space-y-1"><li>📊 Ingresos: $47,230 (+8.2%)</li><li>👥 Nuevos usuarios: 156</li><li>🎫 Tickets resueltos: 23/28</li><li>💳 Transacciones: 892</li></ul></div><p>Para ver el reporte completo, accede al panel de <a class="text-primary underline">Reportes y Análisis</a>.</p>' },
+    { subject:'Acceso al panel de proveedores', sender:'Ana López', email:'ana.lopez@empresa.com', date:'24 Dic, 2:15 PM', avatar:'https://ui-avatars.com/api/?name=Ana+Lopez&background=2563eb&color=fff&size=80', body:'<p>Hola Alex,</p><p>Necesito acceso al módulo de proveedores para poder configurar los nuevos métodos de pago que acordamos. Actualmente solo tengo permisos de lectura.</p><p>¿Podrías actualizarme el rol a Editor en ese módulo? Mi usuario es <strong>ana.lopez</strong>.</p><p class="mt-4">Gracias de antemano,<br/><strong>Ana López</strong><br/>Finance Manager</p>' }
+];
+
+function selectMail(el, idx) {
+    document.querySelectorAll('.mail-item').forEach(m => m.classList.remove('active'));
+    el.classList.add('active');
+    el.classList.remove('unread');
+    const m = mails[idx];
+    document.getElementById('preview-subject').textContent = m.subject;
+    document.getElementById('preview-sender').textContent = m.sender;
+    document.getElementById('preview-email').textContent = m.email;
+    document.getElementById('preview-date').textContent = m.date;
+    document.getElementById('preview-avatar').src = m.avatar;
+    const bodyEl = document.getElementById('preview-body');
+    let html = '<div class="prose prose-sm max-w-none text-sm text-on-surface leading-relaxed">' + m.body + '</div>';
+    if (m.attachments) {
+        html += '<div class="mt-6 p-4 rounded-xl bg-surface-container-low border border-outline-variant/10"><p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-3">Adjuntos (2)</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-3"><div class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/10"><span class="material-symbols-outlined text-red-500">picture_as_pdf</span><div class="flex-1 min-w-0"><p class="text-xs font-semibold truncate">Plan_Campaña_Q1_2026.pdf</p><p class="text-[10px] text-on-surface-variant">2.4 MB</p></div><button class="material-symbols-outlined text-secondary hover:text-primary text-lg">download</button></div><div class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/10"><span class="material-symbols-outlined text-green-600">table_chart</span><div class="flex-1 min-w-0"><p class="text-xs font-semibold truncate">Presupuesto_Marketing.xlsx</p><p class="text-[10px] text-on-surface-variant">856 KB</p></div><button class="material-symbols-outlined text-secondary hover:text-primary text-lg">download</button></div></div></div>';
+    }
+    bodyEl.innerHTML = html;
+}
+
+function setFolder(btn, folder) {
+    document.querySelectorAll('.folder-btn').forEach(b => { b.classList.remove('active','text-primary','bg-primary/8','font-semibold'); b.classList.add('text-on-surface-variant','font-medium'); });
+    btn.classList.add('active','text-primary','bg-primary/8','font-semibold');
+    btn.classList.remove('text-on-surface-variant','font-medium');
+    Toast.show('Carpeta: ' + btn.textContent.trim().split('\n')[0], 'info');
+}
+</script>
+</body>
+</html>

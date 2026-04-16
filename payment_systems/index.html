@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Centro de Comando - Sistemas de Pago</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-highest":"#e0e3e5","tertiary-fixed-dim":"#ffb691","outline-variant":"#c5c5d3","primary-fixed-dim":"#b6c4ff","primary":"#00236f","on-surface-variant":"#444651","on-error":"#ffffff","on-secondary-fixed-variant":"#3a485b","secondary":"#515f74","tertiary":"#4b1c00","surface-container-high":"#e6e8ea","secondary-fixed-dim":"#b9c7df","on-primary-container":"#90a8ff","outline":"#757682","on-primary-fixed-variant":"#264191","surface-bright":"#f7f9fb","on-primary":"#ffffff","on-tertiary-fixed-variant":"#773205","error":"#ba1a1a","tertiary-fixed":"#ffdbcb","primary-container":"#1e3a8a","surface-container":"#eceef0","on-secondary-container":"#57657a","surface-container-lowest":"#ffffff","tertiary-container":"#6e2c00","on-tertiary-container":"#f39461","surface-tint":"#4059aa","secondary-container":"#d5e3fc","surface":"#f7f9fb","on-error-container":"#93000a","surface-variant":"#e0e3e5","inverse-on-surface":"#eff1f3","error-container":"#ffdad6","on-tertiary-fixed":"#341100","inverse-primary":"#b6c4ff","on-primary-fixed":"#00164e","on-surface":"#191c1e","primary-fixed":"#dce1ff","on-background":"#191c1e","surface-container-low":"#f2f4f6","inverse-surface":"#2d3133","on-secondary":"#ffffff","secondary-fixed":"#d5e3fc","background":"#f7f9fb","surface-dim":"#d8dadc","on-secondary-fixed":"#0d1c2e","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},fontFamily:{headline:["Manrope"],body:["Inter"],label:["Inter"]}}}}</script>
+    <link rel="stylesheet" href="../assets/css/styles.css"/>
+    <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}body{font-family:'Inter',sans-serif}h1,h2,h3,.headline{font-family:'Manrope',sans-serif}</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<div id="sidebar-overlay" class="hidden fixed inset-0 bg-black/40 z-50 lg:hidden" onclick="Sidebar.closeMobile()"></div>
+
+<!-- Sidebar -->
+<aside id="sidebar" class="w-64 h-screen fixed left-0 top-0 bg-[#d8dadc] flex flex-col border-r border-slate-200/15 font-['Manrope'] antialiased tracking-tight z-50">
+    <div class="px-6 py-6 flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white flex-shrink-0"><span class="material-symbols-outlined">architecture</span></div><div class="sidebar-brand-text"><h1 class="text-xl font-bold text-[#191c1e] leading-none">The Editorial</h1><p class="text-[10px] uppercase tracking-widest text-on-surface-variant mt-1">Centro de Comando</p></div></div>
+    <nav class="flex-1 mt-2 space-y-1 overflow-y-auto no-scrollbar">
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../dashboard/index.html"><span class="material-symbols-outlined">dashboard</span><span class="text-sm font-medium sidebar-text">Panel de Control</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../user_management/index.html"><span class="material-symbols-outlined">group</span><span class="text-sm font-medium sidebar-text">Gestión de Usuarios</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../ticket_management/index.html"><span class="material-symbols-outlined">confirmation_number</span><span class="text-sm font-medium sidebar-text">Tickets</span></a>
+        <a class="flex items-center gap-3 border-l-4 border-[#00236f] bg-[#f2f4f6]/50 text-[#191c1e] font-bold pl-4 py-3 hover:bg-[#f2f4f6] transition-colors" href="../payment_systems/index.html"><span class="material-symbols-outlined">account_balance</span><span class="text-sm sidebar-text">Sistemas de Pago</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../payment_history/index.html"><span class="material-symbols-outlined">receipt_long</span><span class="text-sm font-medium sidebar-text">Historial de Pagos</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../reports_analytics/index.html"><span class="material-symbols-outlined">monitoring</span><span class="text-sm font-medium sidebar-text">Reportes y Análisis</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../products/index.html"><span class="material-symbols-outlined">inventory_2</span><span class="text-sm font-medium sidebar-text">Productos</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../inbox/index.html"><span class="material-symbols-outlined">inbox</span><span class="text-sm font-medium sidebar-text">Mensajería</span></a>
+    </nav>
+    <div class="px-6 py-5 border-t border-black/5 sidebar-bottom-section"><div class="space-y-1"><a class="flex items-center gap-3 text-[#444651] py-2 hover:text-[#00236f] transition-colors" href="../settings/index.html"><span class="material-symbols-outlined">settings</span><span class="text-sm font-medium sidebar-text">Configuración</span></a><button data-toggle-dark class="flex items-center gap-3 text-[#444651] py-2 hover:text-[#00236f] transition-colors w-full text-left"><span class="material-symbols-outlined" data-dark-icon>dark_mode</span><span class="text-sm font-medium sidebar-text">Modo Oscuro</span></button><a class="flex items-center gap-3 text-[#444651] py-2 hover:text-error transition-colors" href="../login/index.html"><span class="material-symbols-outlined">logout</span><span class="text-sm font-medium sidebar-text">Cerrar Sesión</span></a></div></div>
+</aside>
+
+<!-- Header -->
+<header id="top-header" class="fixed top-0 right-0 left-64 z-40 flex justify-between items-center px-8 h-16 bg-[#f7f9fb]/80 backdrop-blur-xl text-sm border-b border-outline-variant/10">
+    <div class="flex items-center gap-6">
+        <button id="sidebar-toggle" class="lg:hidden p-2 text-secondary hover:bg-surface-container-low rounded-lg"><span class="material-symbols-outlined">menu</span></button>
+        <div class="relative hidden sm:block"><span class="absolute inset-y-0 left-3 flex items-center text-outline pointer-events-none"><span class="material-symbols-outlined text-[20px]">search</span></span><input class="bg-surface-container-highest border-none rounded-full py-2 pl-10 pr-4 w-64 focus:ring-2 ring-[#4059aa] transition-all text-on-surface placeholder:text-outline-variant text-sm" placeholder="Buscar proveedor..." type="text"/></div>
+    </div>
+    <div class="flex items-center gap-3">
+        <button class="p-2 text-secondary hover:bg-surface-container-low rounded-full transition-colors relative"><span class="material-symbols-outlined">notifications</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface"></span></button>
+        <div class="h-8 w-[1px] bg-outline-variant/30 mx-1"></div>
+        <div class="relative" id="user-menu-toggle"><div class="flex items-center gap-3 cursor-pointer"><div class="text-right hidden sm:block"><p class="text-xs font-bold text-on-surface">Alex Chen</p><p class="text-[10px] text-secondary">Administrador</p></div><img class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm ring-1 ring-black/5" alt="Avatar" src="https://ui-avatars.com/api/?name=Alex+Chen&background=1e3a8a&color=fff&size=80"/></div>
+            <div id="user-menu-dropdown" class="hidden absolute right-0 top-12 w-56 bg-surface-container-lowest rounded-xl shadow-2xl border border-outline-variant/15 py-2 z-50"><div class="px-4 py-3 border-b border-outline-variant/10"><p class="text-sm font-bold text-on-surface">Alex Chen</p><p class="text-xs text-secondary">alex.chen@empresa.com</p></div><a href="../profile/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-lg">person</span>Mi Perfil</a><a href="../settings/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-lg">settings</span>Configuración</a><div class="border-t border-outline-variant/10 my-1"></div><a href="../login/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-error hover:bg-error-container/30 transition-colors"><span class="material-symbols-outlined text-lg">logout</span>Cerrar Sesión</a></div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main id="main-content" class="ml-64 pt-24 pb-12 px-8 min-h-screen transition-all">
+<div class="max-w-7xl mx-auto animate-fade-in">
+
+    <!-- Page Header -->
+    <div class="mb-10 flex flex-col lg:flex-row justify-between lg:items-end gap-4">
+        <div>
+            <div class="flex items-center gap-2 text-xs font-medium text-on-surface-variant uppercase tracking-widest mb-2"><span>Centro de Comando</span><span class="material-symbols-outlined text-[12px]">chevron_right</span><span class="text-primary font-bold">Sistemas de Pago</span></div>
+            <h2 class="text-4xl font-extrabold tracking-tight text-on-surface headline">Proveedores de Pago</h2>
+            <p class="text-on-surface-variant mt-2">Configura y gestiona las integraciones con pasarelas de pago.</p>
+        </div>
+        <button onclick="Drawer.open('drawer-add-provider')" class="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-primary-container text-white rounded-lg font-bold text-sm shadow-lg shadow-primary/20 hover:translate-y-[-1px] transition-all">
+            <span class="material-symbols-outlined text-sm">add_circle</span>Agregar Proveedor
+        </button>
+    </div>
+
+    <!-- Provider Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8 animate-stagger">
+
+        <!-- Stripe -->
+        <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 hover:shadow-lg transition-all">
+            <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center"><span class="material-symbols-outlined text-indigo-600 text-2xl">credit_card</span></div>
+                    <div><h3 class="font-extrabold headline text-on-surface">Stripe</h3><p class="text-xs text-on-surface-variant">Tarjetas de crédito/débito</p></div>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active');Toast.show(this.classList.contains('active')?'Stripe activado':'Stripe desactivado',this.classList.contains('active')?'success':'warning')"></div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 mb-4">
+                <div class="p-3 bg-surface-container-low rounded-lg"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Transacciones (mes)</span><p class="text-lg font-black headline mt-1">2,847</p></div>
+                <div class="p-3 bg-surface-container-low rounded-lg"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Volumen</span><p class="text-lg font-black headline mt-1">$187K</p></div>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg mb-4">
+                <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span><span class="text-xs font-bold text-green-700">Conectado</span></div>
+                <span class="text-xs text-green-600">API v2024-06</span>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="Modal.open('modal-configure-provider')" class="flex-1 py-2.5 bg-surface-container-low text-secondary rounded-lg font-semibold text-xs hover:bg-surface-container transition-colors">Configurar</button>
+                <button onclick="Toast.show('Webhook de prueba enviado','info')" class="flex-1 py-2.5 bg-surface-container-low text-secondary rounded-lg font-semibold text-xs hover:bg-surface-container transition-colors">Test Webhook</button>
+            </div>
+        </div>
+
+        <!-- PayPal -->
+        <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 hover:shadow-lg transition-all">
+            <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center"><span class="material-symbols-outlined text-blue-600 text-2xl">account_balance_wallet</span></div>
+                    <div><h3 class="font-extrabold headline text-on-surface">PayPal</h3><p class="text-xs text-on-surface-variant">Billeteras digitales</p></div>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active');Toast.show(this.classList.contains('active')?'PayPal activado':'PayPal desactivado',this.classList.contains('active')?'success':'warning')"></div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 mb-4">
+                <div class="p-3 bg-surface-container-low rounded-lg"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Transacciones (mes)</span><p class="text-lg font-black headline mt-1">634</p></div>
+                <div class="p-3 bg-surface-container-low rounded-lg"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Volumen</span><p class="text-lg font-black headline mt-1">$42K</p></div>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg mb-4">
+                <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span><span class="text-xs font-bold text-green-700">Conectado</span></div>
+                <span class="text-xs text-green-600">REST API v2</span>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="Modal.open('modal-configure-provider')" class="flex-1 py-2.5 bg-surface-container-low text-secondary rounded-lg font-semibold text-xs hover:bg-surface-container transition-colors">Configurar</button>
+                <button onclick="Toast.show('Webhook de prueba enviado','info')" class="flex-1 py-2.5 bg-surface-container-low text-secondary rounded-lg font-semibold text-xs hover:bg-surface-container transition-colors">Test Webhook</button>
+            </div>
+        </div>
+
+        <!-- MercadoPago -->
+        <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 hover:shadow-lg transition-all">
+            <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-sky-100 flex items-center justify-center"><span class="material-symbols-outlined text-sky-600 text-2xl">payments</span></div>
+                    <div><h3 class="font-extrabold headline text-on-surface">MercadoPago</h3><p class="text-xs text-on-surface-variant">Pagos LATAM</p></div>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active');Toast.show(this.classList.contains('active')?'MercadoPago activado':'MercadoPago desactivado',this.classList.contains('active')?'success':'warning')"></div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 mb-4">
+                <div class="p-3 bg-surface-container-low rounded-lg"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Transacciones (mes)</span><p class="text-lg font-black headline mt-1">312</p></div>
+                <div class="p-3 bg-surface-container-low rounded-lg"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Volumen</span><p class="text-lg font-black headline mt-1">$28K</p></div>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg mb-4">
+                <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span><span class="text-xs font-bold text-green-700">Conectado</span></div>
+                <span class="text-xs text-green-600">API v1</span>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="Modal.open('modal-configure-provider')" class="flex-1 py-2.5 bg-surface-container-low text-secondary rounded-lg font-semibold text-xs hover:bg-surface-container transition-colors">Configurar</button>
+                <button onclick="Toast.show('Webhook de prueba enviado','info')" class="flex-1 py-2.5 bg-surface-container-low text-secondary rounded-lg font-semibold text-xs hover:bg-surface-container transition-colors">Test Webhook</button>
+            </div>
+        </div>
+
+        <!-- Bank Transfer -->
+        <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 hover:shadow-lg transition-all">
+            <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center"><span class="material-symbols-outlined text-green-600 text-2xl">account_balance</span></div>
+                    <div><h3 class="font-extrabold headline text-on-surface">Transferencia</h3><p class="text-xs text-on-surface-variant">Transferencia bancaria</p></div>
+                </div>
+                <div class="toggle-switch active" onclick="this.classList.toggle('active');Toast.show(this.classList.contains('active')?'Transferencia activada':'Transferencia desactivada',this.classList.contains('active')?'success':'warning')"></div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 mb-4">
+                <div class="p-3 bg-surface-container-low rounded-lg"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Transacciones (mes)</span><p class="text-lg font-black headline mt-1">54</p></div>
+                <div class="p-3 bg-surface-container-low rounded-lg"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Volumen</span><p class="text-lg font-black headline mt-1">$27K</p></div>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg mb-4">
+                <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span><span class="text-xs font-bold text-green-700">Activo</span></div>
+                <span class="text-xs text-green-600">Manual</span>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="Modal.open('modal-configure-provider')" class="flex-1 py-2.5 bg-surface-container-low text-secondary rounded-lg font-semibold text-xs hover:bg-surface-container transition-colors">Configurar</button>
+            </div>
+        </div>
+
+        <!-- Crypto -->
+        <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 hover:shadow-lg transition-all opacity-60">
+            <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center"><span class="material-symbols-outlined text-amber-600 text-2xl">currency_bitcoin</span></div>
+                    <div><h3 class="font-extrabold headline text-on-surface">Cripto (Coinbase)</h3><p class="text-xs text-on-surface-variant">BTC, ETH, USDT</p></div>
+                </div>
+                <div class="toggle-switch" onclick="this.classList.toggle('active');Toast.show(this.classList.contains('active')?'Cripto activado':'Cripto desactivado',this.classList.contains('active')?'success':'warning')"></div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 mb-4">
+                <div class="p-3 bg-surface-container-low rounded-lg"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Transacciones (mes)</span><p class="text-lg font-black headline mt-1">0</p></div>
+                <div class="p-3 bg-surface-container-low rounded-lg"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Volumen</span><p class="text-lg font-black headline mt-1">$0</p></div>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg mb-4">
+                <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-gray-400"></span><span class="text-xs font-bold text-on-surface-variant">Desconectado</span></div>
+                <span class="text-xs text-on-surface-variant">Sin configurar</span>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="Modal.open('modal-configure-provider')" class="flex-1 py-2.5 bg-primary text-white rounded-lg font-bold text-xs hover:opacity-90 transition-opacity">Conectar</button>
+            </div>
+        </div>
+
+        <!-- Apple Pay -->
+        <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 hover:shadow-lg transition-all opacity-60">
+            <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center"><span class="material-symbols-outlined text-gray-700 text-2xl">smartphone</span></div>
+                    <div><h3 class="font-extrabold headline text-on-surface">Apple Pay</h3><p class="text-xs text-on-surface-variant">Pago móvil</p></div>
+                </div>
+                <div class="toggle-switch" onclick="this.classList.toggle('active');Toast.show(this.classList.contains('active')?'Apple Pay activado':'Apple Pay desactivado',this.classList.contains('active')?'success':'warning')"></div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 mb-4">
+                <div class="p-3 bg-surface-container-low rounded-lg"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Transacciones (mes)</span><p class="text-lg font-black headline mt-1">0</p></div>
+                <div class="p-3 bg-surface-container-low rounded-lg"><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Volumen</span><p class="text-lg font-black headline mt-1">$0</p></div>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg mb-4">
+                <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-gray-400"></span><span class="text-xs font-bold text-on-surface-variant">Desconectado</span></div>
+                <span class="text-xs text-on-surface-variant">Sin configurar</span>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="Modal.open('modal-configure-provider')" class="flex-1 py-2.5 bg-primary text-white rounded-lg font-bold text-xs hover:opacity-90 transition-opacity">Conectar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Webhook Logs -->
+    <div class="rounded-xl bg-surface-container-lowest border border-outline-variant/15 p-6">
+        <h3 class="text-sm font-extrabold headline mb-4">Últimos Eventos de Webhook</h3>
+        <div class="space-y-3">
+            <div class="flex items-center gap-4 p-3 bg-surface-container-low rounded-lg"><span class="w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span><div class="flex-1"><p class="text-xs font-semibold">payment_intent.succeeded</p><p class="text-[10px] text-on-surface-variant">Stripe · #PAY-94821 · $2,499.00</p></div><span class="text-[10px] text-on-surface-variant">Hace 2 min</span></div>
+            <div class="flex items-center gap-4 p-3 bg-surface-container-low rounded-lg"><span class="w-2 h-2 rounded-full bg-green-500 flex-shrink-0"></span><div class="flex-1"><p class="text-xs font-semibold">checkout.session.completed</p><p class="text-[10px] text-on-surface-variant">PayPal · #PAY-94819 · $49.00</p></div><span class="text-[10px] text-on-surface-variant">Hace 15 min</span></div>
+            <div class="flex items-center gap-4 p-3 bg-surface-container-low rounded-lg"><span class="w-2 h-2 rounded-full bg-red-500 flex-shrink-0"></span><div class="flex-1"><p class="text-xs font-semibold">charge.failed</p><p class="text-[10px] text-on-surface-variant">Stripe · #PAY-94816 · $2,499.00 — card_declined</p></div><span class="text-[10px] text-on-surface-variant">Hace 1 hora</span></div>
+            <div class="flex items-center gap-4 p-3 bg-surface-container-low rounded-lg"><span class="w-2 h-2 rounded-full bg-amber-500 flex-shrink-0"></span><div class="flex-1"><p class="text-xs font-semibold">charge.refunded</p><p class="text-[10px] text-on-surface-variant">Stripe · #PAY-94817 · -$149.00</p></div><span class="text-[10px] text-on-surface-variant">Hace 3 horas</span></div>
+        </div>
+    </div>
+
+</div>
+</main>
+
+<!-- Configure Provider Modal -->
+<div id="modal-configure-provider" class="hidden fixed inset-0 z-[100] items-center justify-center p-4">
+    <div class="modal-backdrop absolute inset-0 bg-black/40" onclick="Modal.close('modal-configure-provider')"></div>
+    <div class="modal-panel relative bg-surface-container-lowest rounded-xl shadow-2xl w-full max-w-lg p-6 border border-outline-variant/15 max-h-[90vh] overflow-y-auto">
+        <div class="flex justify-between items-center mb-6"><h3 class="text-lg font-extrabold headline">Configurar Proveedor</h3><button onclick="Modal.close('modal-configure-provider')" class="p-1 hover:bg-surface-container-low rounded-lg transition-colors"><span class="material-symbols-outlined">close</span></button></div>
+        <form class="space-y-5" novalidate onsubmit="event.preventDefault();if(FormValidator.validate(this)){Modal.close('modal-configure-provider');Toast.show('Configuración guardada','success')}">
+            <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">API Key (Pública)</label><input type="text" required class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm font-mono" placeholder="pk_live_..."/><p class="field-error hidden text-xs text-error font-medium"></p></div>
+            <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Secret Key</label><input type="password" required class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm font-mono" placeholder="sk_live_..."/><p class="field-error hidden text-xs text-error font-medium"></p></div>
+            <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Webhook URL</label><div class="flex"><input type="text" readonly value="https://api.tudominio.com/webhooks/stripe" class="flex-1 px-4 py-3 bg-surface-container-low border-0 rounded-l-lg text-sm font-mono text-on-surface-variant"/><button type="button" onclick="navigator.clipboard.writeText('https://api.tudominio.com/webhooks/stripe');Toast.show('URL copiada','info')" class="px-4 bg-primary text-white rounded-r-lg text-xs font-bold">Copiar</button></div></div>
+            <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Webhook Secret</label><input type="password" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm font-mono" placeholder="whsec_..."/></div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg"><span class="text-xs font-semibold">Modo de prueba</span><div class="toggle-switch" onclick="this.classList.toggle('active')"></div></div>
+                <div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg"><span class="text-xs font-semibold">3D Secure</span><div class="toggle-switch active" onclick="this.classList.toggle('active')"></div></div>
+            </div>
+            <div class="flex gap-3 pt-2">
+                <button type="button" onclick="Modal.close('modal-configure-provider')" class="flex-1 py-3 bg-surface-container-low text-secondary rounded-lg font-semibold text-sm hover:bg-surface-container transition-colors">Cancelar</button>
+                <button type="submit" class="flex-1 py-3 bg-primary text-on-primary rounded-lg font-bold text-sm hover:opacity-90 transition-opacity">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Add Provider Drawer -->
+<div id="drawer-add-provider" class="hidden fixed inset-0 z-[100]">
+    <div class="drawer-backdrop absolute inset-0 bg-black/40" onclick="Drawer.close('drawer-add-provider')"></div>
+    <div class="drawer-panel absolute right-0 top-0 h-full w-full max-w-md bg-surface-container-lowest shadow-2xl border-l border-outline-variant/15 overflow-y-auto">
+        <div class="sticky top-0 bg-surface-container-lowest z-10 flex justify-between items-center p-6 border-b border-outline-variant/10"><h3 class="text-lg font-extrabold headline">Agregar Proveedor</h3><button onclick="Drawer.close('drawer-add-provider')" class="p-1 hover:bg-surface-container-low rounded-lg transition-colors"><span class="material-symbols-outlined">close</span></button></div>
+        <div class="p-6">
+            <p class="text-sm text-on-surface-variant mb-6">Selecciona un proveedor de pago para configurar la integración.</p>
+            <div class="space-y-3">
+                <button onclick="Drawer.close('drawer-add-provider');Modal.open('modal-configure-provider')" class="w-full flex items-center gap-4 p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors text-left"><div class="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center"><span class="material-symbols-outlined text-indigo-600">credit_card</span></div><div><p class="text-sm font-bold">Stripe</p><p class="text-xs text-on-surface-variant">Tarjetas, Apple Pay, Google Pay</p></div><span class="material-symbols-outlined text-outline ml-auto">chevron_right</span></button>
+                <button onclick="Drawer.close('drawer-add-provider');Modal.open('modal-configure-provider')" class="w-full flex items-center gap-4 p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors text-left"><div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center"><span class="material-symbols-outlined text-blue-600">account_balance_wallet</span></div><div><p class="text-sm font-bold">PayPal</p><p class="text-xs text-on-surface-variant">Billetera digital, tarjetas</p></div><span class="material-symbols-outlined text-outline ml-auto">chevron_right</span></button>
+                <button onclick="Drawer.close('drawer-add-provider');Modal.open('modal-configure-provider')" class="w-full flex items-center gap-4 p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors text-left"><div class="w-10 h-10 rounded-lg bg-sky-100 flex items-center justify-center"><span class="material-symbols-outlined text-sky-600">payments</span></div><div><p class="text-sm font-bold">MercadoPago</p><p class="text-xs text-on-surface-variant">Pagos en LATAM</p></div><span class="material-symbols-outlined text-outline ml-auto">chevron_right</span></button>
+                <button onclick="Drawer.close('drawer-add-provider');Modal.open('modal-configure-provider')" class="w-full flex items-center gap-4 p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors text-left"><div class="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center"><span class="material-symbols-outlined text-amber-600">currency_bitcoin</span></div><div><p class="text-sm font-bold">Coinbase Commerce</p><p class="text-xs text-on-surface-variant">Criptomonedas</p></div><span class="material-symbols-outlined text-outline ml-auto">chevron_right</span></button>
+                <button onclick="Drawer.close('drawer-add-provider');Modal.open('modal-configure-provider')" class="w-full flex items-center gap-4 p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors text-left"><div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center"><span class="material-symbols-outlined text-green-600">account_balance</span></div><div><p class="text-sm font-bold">Transferencia Bancaria</p><p class="text-xs text-on-surface-variant">SPEI, Wire Transfer</p></div><span class="material-symbols-outlined text-outline ml-auto">chevron_right</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../assets/js/core.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Centro de Comando - Productos</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-highest":"#e0e3e5","tertiary-fixed-dim":"#ffb691","outline-variant":"#c5c5d3","primary-fixed-dim":"#b6c4ff","primary":"#00236f","on-surface-variant":"#444651","on-error":"#ffffff","on-secondary-fixed-variant":"#3a485b","secondary":"#515f74","tertiary":"#4b1c00","surface-container-high":"#e6e8ea","secondary-fixed-dim":"#b9c7df","on-primary-container":"#90a8ff","outline":"#757682","on-primary-fixed-variant":"#264191","surface-bright":"#f7f9fb","on-primary":"#ffffff","on-tertiary-fixed-variant":"#773205","error":"#ba1a1a","tertiary-fixed":"#ffdbcb","primary-container":"#1e3a8a","surface-container":"#eceef0","on-secondary-container":"#57657a","surface-container-lowest":"#ffffff","tertiary-container":"#6e2c00","on-tertiary-container":"#f39461","surface-tint":"#4059aa","secondary-container":"#d5e3fc","surface":"#f7f9fb","on-error-container":"#93000a","surface-variant":"#e0e3e5","inverse-on-surface":"#eff1f3","error-container":"#ffdad6","on-tertiary-fixed":"#341100","inverse-primary":"#b6c4ff","on-primary-fixed":"#00164e","on-surface":"#191c1e","primary-fixed":"#dce1ff","on-background":"#191c1e","surface-container-low":"#f2f4f6","inverse-surface":"#2d3133","on-secondary":"#ffffff","secondary-fixed":"#d5e3fc","background":"#f7f9fb","surface-dim":"#d8dadc","on-secondary-fixed":"#0d1c2e","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},fontFamily:{headline:["Manrope"],body:["Inter"],label:["Inter"]}}}}</script>
+    <link rel="stylesheet" href="../assets/css/styles.css"/>
+    <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}body{font-family:'Inter',sans-serif}h1,h2,h3,.headline{font-family:'Manrope',sans-serif}.view-btn.active{background:rgba(0,35,111,.1);color:#00236f}.product-card{transition:transform .2s,box-shadow .2s}.product-card:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.08)}</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<div id="sidebar-overlay" class="hidden fixed inset-0 bg-black/40 z-50 lg:hidden" onclick="Sidebar.closeMobile()"></div>
+
+<!-- Sidebar -->
+<aside id="sidebar" class="w-64 h-screen fixed left-0 top-0 bg-[#d8dadc] flex flex-col border-r border-slate-200/15 font-['Manrope'] antialiased tracking-tight z-50">
+    <div class="px-6 py-6 flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white flex-shrink-0"><span class="material-symbols-outlined">architecture</span></div><div class="sidebar-brand-text"><h1 class="text-xl font-bold text-[#191c1e] leading-none">The Editorial</h1><p class="text-[10px] uppercase tracking-widest text-on-surface-variant mt-1">Centro de Comando</p></div></div>
+    <nav class="flex-1 mt-2 space-y-1 overflow-y-auto no-scrollbar">
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../dashboard/index.html"><span class="material-symbols-outlined">dashboard</span><span class="text-sm font-medium sidebar-text">Panel de Control</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../user_management/index.html"><span class="material-symbols-outlined">group</span><span class="text-sm font-medium sidebar-text">Gestión de Usuarios</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../ticket_management/index.html"><span class="material-symbols-outlined">confirmation_number</span><span class="text-sm font-medium sidebar-text">Tickets</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../payment_systems/index.html"><span class="material-symbols-outlined">account_balance</span><span class="text-sm font-medium sidebar-text">Sistemas de Pago</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../payment_history/index.html"><span class="material-symbols-outlined">receipt_long</span><span class="text-sm font-medium sidebar-text">Historial de Pagos</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../reports_analytics/index.html"><span class="material-symbols-outlined">monitoring</span><span class="text-sm font-medium sidebar-text">Reportes y Análisis</span></a>
+        <a class="flex items-center gap-3 border-l-4 border-[#00236f] bg-[#f2f4f6]/50 text-[#191c1e] font-bold pl-4 py-3" href="../products/index.html"><span class="material-symbols-outlined">inventory_2</span><span class="text-sm sidebar-text">Productos</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../inbox/index.html"><span class="material-symbols-outlined">inbox</span><span class="text-sm font-medium sidebar-text">Mensajería</span></a>
+    </nav>
+    <div class="px-6 py-5 border-t border-black/5 sidebar-bottom-section"><div class="space-y-1">
+        <a class="flex items-center gap-3 text-[#444651] py-2 hover:text-[#00236f] transition-colors" href="../settings/index.html"><span class="material-symbols-outlined">settings</span><span class="text-sm font-medium sidebar-text">Configuración</span></a>
+        <button data-toggle-dark class="flex items-center gap-3 text-[#444651] py-2 hover:text-[#00236f] transition-colors w-full text-left"><span class="material-symbols-outlined" data-dark-icon>dark_mode</span><span class="text-sm font-medium sidebar-text">Modo Oscuro</span></button>
+        <a class="flex items-center gap-3 text-[#444651] py-2 hover:text-error transition-colors" href="../login/index.html"><span class="material-symbols-outlined">logout</span><span class="text-sm font-medium sidebar-text">Cerrar Sesión</span></a></div></div>
+</aside>
+
+<!-- Header -->
+<header id="top-header" class="fixed top-0 right-0 left-64 z-40 flex justify-between items-center px-8 h-16 bg-[#f7f9fb]/80 backdrop-blur-xl text-sm border-b border-outline-variant/10">
+    <div class="flex items-center gap-6"><button id="sidebar-toggle" class="lg:hidden p-2 text-secondary hover:bg-surface-container-low rounded-lg"><span class="material-symbols-outlined">menu</span></button><h2 class="text-lg font-extrabold headline hidden sm:block">Productos</h2></div>
+    <div class="flex items-center gap-3">
+        <button class="p-2 text-secondary hover:bg-surface-container-low rounded-full transition-colors relative"><span class="material-symbols-outlined">notifications</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface"></span></button>
+        <div class="h-8 w-[1px] bg-outline-variant/30 mx-1"></div>
+        <div class="relative" id="user-menu-toggle"><div class="flex items-center gap-3 cursor-pointer"><div class="text-right hidden sm:block"><p class="text-xs font-bold text-on-surface">Alex Chen</p><p class="text-[10px] text-secondary">Administrador</p></div><img class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm ring-1 ring-black/5" alt="Avatar" src="https://ui-avatars.com/api/?name=Alex+Chen&background=1e3a8a&color=fff&size=80"/></div>
+            <div id="user-menu-dropdown" class="hidden absolute right-0 top-12 w-56 bg-surface-container-lowest rounded-xl shadow-2xl border border-outline-variant/15 py-2 z-50"><div class="px-4 py-3 border-b border-outline-variant/10"><p class="text-sm font-bold text-on-surface">Alex Chen</p><p class="text-xs text-secondary">alex.chen@empresa.com</p></div><a href="../profile/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-lg">person</span>Mi Perfil</a><a href="../settings/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-lg">settings</span>Configuración</a><div class="border-t border-outline-variant/10 my-1"></div><a href="../login/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-error hover:bg-error-container/30 transition-colors"><span class="material-symbols-outlined text-lg">logout</span>Cerrar Sesión</a></div>
+        </div>
+    </div>
+</header>
+
+<main id="main-content" class="ml-64 pt-24 pb-12 px-8 min-h-screen transition-all">
+<div class="max-w-7xl mx-auto animate-fade-in">
+
+    <div class="mb-8">
+        <div class="flex items-center gap-2 text-xs font-medium text-on-surface-variant uppercase tracking-widest mb-2"><span>Centro de Comando</span><span class="material-symbols-outlined text-[12px]">chevron_right</span><span class="text-primary font-bold">Productos</span></div>
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div><h2 class="text-4xl font-extrabold tracking-tight text-on-surface headline">Catálogo de Productos</h2><p class="text-on-surface-variant mt-1">Administra el inventario y precios de tus productos.</p></div>
+            <button onclick="Modal.open('modal-add-product')" class="flex items-center gap-2 px-5 py-3 bg-primary text-on-primary rounded-xl font-bold text-sm hover:opacity-90 transition-opacity shrink-0"><span class="material-symbols-outlined text-lg">add</span>Nuevo Producto</button>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/15"><p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Total Productos</p><p class="text-2xl font-extrabold headline mt-2">248</p><p class="text-xs text-green-600 font-bold mt-1">+12 este mes</p></div>
+        <div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/15"><p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Activos</p><p class="text-2xl font-extrabold headline mt-2">196</p><p class="text-xs text-on-surface-variant font-bold mt-1">79% del catálogo</p></div>
+        <div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/15"><p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Sin Stock</p><p class="text-2xl font-extrabold headline mt-2 text-error">18</p><p class="text-xs text-error font-bold mt-1">Requieren restock</p></div>
+        <div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/15"><p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Valor Inventario</p><p class="text-2xl font-extrabold headline mt-2">$1.2M</p><p class="text-xs text-green-600 font-bold mt-1">+5.4% vs mes ant.</p></div>
+    </div>
+
+    <!-- Filters & View Toggle -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+        <div class="flex items-center gap-3 flex-wrap">
+            <div class="relative"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-lg">search</span><input type="text" id="product-search" placeholder="Buscar productos..." class="pl-10 pr-4 py-2.5 bg-surface-container-lowest border border-outline-variant/15 rounded-xl text-xs w-56 focus:ring-1 focus:ring-primary focus:border-primary" oninput="filterProducts()"/></div>
+            <select id="filter-category" class="px-4 py-2.5 bg-surface-container-lowest border border-outline-variant/15 rounded-xl text-xs focus:ring-1 focus:ring-primary" onchange="filterProducts()"><option value="">Todas las categorías</option><option value="editorial">Editorial</option><option value="digital">Digital</option><option value="merchandise">Merchandise</option><option value="suscripcion">Suscripción</option></select>
+            <select id="filter-status" class="px-4 py-2.5 bg-surface-container-lowest border border-outline-variant/15 rounded-xl text-xs focus:ring-1 focus:ring-primary" onchange="filterProducts()"><option value="">Todos los estados</option><option value="active">Activo</option><option value="draft">Borrador</option><option value="out">Sin stock</option></select>
+        </div>
+        <div class="flex items-center gap-1 bg-surface-container-low rounded-lg p-1">
+            <button onclick="setView('grid')" class="view-btn active p-2 rounded-md text-secondary transition-colors"><span class="material-symbols-outlined text-lg">grid_view</span></button>
+            <button onclick="setView('list')" class="view-btn p-2 rounded-md text-secondary transition-colors"><span class="material-symbols-outlined text-lg">view_list</span></button>
+        </div>
+    </div>
+
+    <!-- Grid View -->
+    <div id="view-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <!-- Product 1 -->
+        <div class="product-card rounded-xl bg-surface-container-lowest border border-outline-variant/15 overflow-hidden" data-cat="editorial" data-status="active" data-name="Guía Editorial Premium">
+            <div class="aspect-[4/3] bg-gradient-to-br from-indigo-100 to-blue-50 flex items-center justify-center relative"><span class="material-symbols-outlined text-5xl text-primary/30">menu_book</span><span class="absolute top-3 right-3 px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-700">Activo</span></div>
+            <div class="p-4"><p class="text-xs text-on-surface-variant font-bold uppercase tracking-wider">Editorial</p><h4 class="text-sm font-extrabold headline mt-1">Guía Editorial Premium</h4><div class="flex justify-between items-center mt-3"><p class="text-lg font-extrabold text-primary">$49.99</p><p class="text-xs text-on-surface-variant">Stock: <span class="font-bold text-on-surface">342</span></p></div>
+                <div class="flex gap-2 mt-3"><button onclick="Drawer.open('drawer-edit-product')" class="flex-1 px-3 py-2 bg-surface-container-low rounded-lg text-xs font-bold text-on-surface-variant hover:bg-surface-container transition-colors text-center">Editar</button><button onclick="Toast.show('Producto duplicado','success')" class="p-2 bg-surface-container-low rounded-lg text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">content_copy</span></button></div>
+            </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="product-card rounded-xl bg-surface-container-lowest border border-outline-variant/15 overflow-hidden" data-cat="digital" data-status="active" data-name="Plantilla Dashboard Pro">
+            <div class="aspect-[4/3] bg-gradient-to-br from-violet-100 to-purple-50 flex items-center justify-center relative"><span class="material-symbols-outlined text-5xl text-purple-300">dashboard</span><span class="absolute top-3 right-3 px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-700">Activo</span></div>
+            <div class="p-4"><p class="text-xs text-on-surface-variant font-bold uppercase tracking-wider">Digital</p><h4 class="text-sm font-extrabold headline mt-1">Plantilla Dashboard Pro</h4><div class="flex justify-between items-center mt-3"><p class="text-lg font-extrabold text-primary">$29.99</p><p class="text-xs text-on-surface-variant">Stock: <span class="font-bold text-on-surface">∞</span></p></div>
+                <div class="flex gap-2 mt-3"><button onclick="Drawer.open('drawer-edit-product')" class="flex-1 px-3 py-2 bg-surface-container-low rounded-lg text-xs font-bold text-on-surface-variant hover:bg-surface-container transition-colors text-center">Editar</button><button onclick="Toast.show('Producto duplicado','success')" class="p-2 bg-surface-container-low rounded-lg text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">content_copy</span></button></div>
+            </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="product-card rounded-xl bg-surface-container-lowest border border-outline-variant/15 overflow-hidden" data-cat="merchandise" data-status="out" data-name="Taza Editorial Limited">
+            <div class="aspect-[4/3] bg-gradient-to-br from-amber-100 to-orange-50 flex items-center justify-center relative"><span class="material-symbols-outlined text-5xl text-amber-300">coffee</span><span class="absolute top-3 right-3 px-2 py-0.5 rounded text-[10px] font-bold bg-red-100 text-red-700">Sin stock</span></div>
+            <div class="p-4"><p class="text-xs text-on-surface-variant font-bold uppercase tracking-wider">Merchandise</p><h4 class="text-sm font-extrabold headline mt-1">Taza Editorial Limited</h4><div class="flex justify-between items-center mt-3"><p class="text-lg font-extrabold text-primary">$14.99</p><p class="text-xs text-error font-bold">Stock: 0</p></div>
+                <div class="flex gap-2 mt-3"><button onclick="Drawer.open('drawer-edit-product')" class="flex-1 px-3 py-2 bg-surface-container-low rounded-lg text-xs font-bold text-on-surface-variant hover:bg-surface-container transition-colors text-center">Editar</button><button onclick="Toast.show('Producto duplicado','success')" class="p-2 bg-surface-container-low rounded-lg text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">content_copy</span></button></div>
+            </div>
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card rounded-xl bg-surface-container-lowest border border-outline-variant/15 overflow-hidden" data-cat="suscripcion" data-status="active" data-name="Plan Empresarial Anual">
+            <div class="aspect-[4/3] bg-gradient-to-br from-emerald-100 to-green-50 flex items-center justify-center relative"><span class="material-symbols-outlined text-5xl text-emerald-300">workspace_premium</span><span class="absolute top-3 right-3 px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-700">Activo</span></div>
+            <div class="p-4"><p class="text-xs text-on-surface-variant font-bold uppercase tracking-wider">Suscripción</p><h4 class="text-sm font-extrabold headline mt-1">Plan Empresarial Anual</h4><div class="flex justify-between items-center mt-3"><p class="text-lg font-extrabold text-primary">$199.99<span class="text-xs font-normal text-on-surface-variant">/año</span></p><p class="text-xs text-on-surface-variant">Activos: <span class="font-bold text-on-surface">87</span></p></div>
+                <div class="flex gap-2 mt-3"><button onclick="Drawer.open('drawer-edit-product')" class="flex-1 px-3 py-2 bg-surface-container-low rounded-lg text-xs font-bold text-on-surface-variant hover:bg-surface-container transition-colors text-center">Editar</button><button onclick="Toast.show('Producto duplicado','success')" class="p-2 bg-surface-container-low rounded-lg text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">content_copy</span></button></div>
+            </div>
+        </div>
+        <!-- Product 5 -->
+        <div class="product-card rounded-xl bg-surface-container-lowest border border-outline-variant/15 overflow-hidden" data-cat="digital" data-status="active" data-name="Pack Iconos Editorial">
+            <div class="aspect-[4/3] bg-gradient-to-br from-pink-100 to-rose-50 flex items-center justify-center relative"><span class="material-symbols-outlined text-5xl text-pink-300">palette</span><span class="absolute top-3 right-3 px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-700">Activo</span></div>
+            <div class="p-4"><p class="text-xs text-on-surface-variant font-bold uppercase tracking-wider">Digital</p><h4 class="text-sm font-extrabold headline mt-1">Pack Iconos Editorial</h4><div class="flex justify-between items-center mt-3"><p class="text-lg font-extrabold text-primary">$9.99</p><p class="text-xs text-on-surface-variant">Stock: <span class="font-bold text-on-surface">∞</span></p></div>
+                <div class="flex gap-2 mt-3"><button onclick="Drawer.open('drawer-edit-product')" class="flex-1 px-3 py-2 bg-surface-container-low rounded-lg text-xs font-bold text-on-surface-variant hover:bg-surface-container transition-colors text-center">Editar</button><button onclick="Toast.show('Producto duplicado','success')" class="p-2 bg-surface-container-low rounded-lg text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">content_copy</span></button></div>
+            </div>
+        </div>
+        <!-- Product 6 -->
+        <div class="product-card rounded-xl bg-surface-container-lowest border border-outline-variant/15 overflow-hidden" data-cat="editorial" data-status="draft" data-name="Curso Redacción Avanzada">
+            <div class="aspect-[4/3] bg-gradient-to-br from-slate-100 to-gray-50 flex items-center justify-center relative"><span class="material-symbols-outlined text-5xl text-slate-300">school</span><span class="absolute top-3 right-3 px-2 py-0.5 rounded text-[10px] font-bold bg-gray-100 text-gray-600">Borrador</span></div>
+            <div class="p-4"><p class="text-xs text-on-surface-variant font-bold uppercase tracking-wider">Editorial</p><h4 class="text-sm font-extrabold headline mt-1">Curso Redacción Avanzada</h4><div class="flex justify-between items-center mt-3"><p class="text-lg font-extrabold text-on-surface-variant">$79.99</p><p class="text-xs text-on-surface-variant">No publicado</p></div>
+                <div class="flex gap-2 mt-3"><button onclick="Drawer.open('drawer-edit-product')" class="flex-1 px-3 py-2 bg-surface-container-low rounded-lg text-xs font-bold text-on-surface-variant hover:bg-surface-container transition-colors text-center">Editar</button><button onclick="Toast.show('Producto duplicado','success')" class="p-2 bg-surface-container-low rounded-lg text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">content_copy</span></button></div>
+            </div>
+        </div>
+        <!-- Product 7 -->
+        <div class="product-card rounded-xl bg-surface-container-lowest border border-outline-variant/15 overflow-hidden" data-cat="merchandise" data-status="active" data-name="Camiseta The Editorial">
+            <div class="aspect-[4/3] bg-gradient-to-br from-cyan-100 to-sky-50 flex items-center justify-center relative"><span class="material-symbols-outlined text-5xl text-cyan-300">checkroom</span><span class="absolute top-3 right-3 px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-700">Activo</span></div>
+            <div class="p-4"><p class="text-xs text-on-surface-variant font-bold uppercase tracking-wider">Merchandise</p><h4 class="text-sm font-extrabold headline mt-1">Camiseta The Editorial</h4><div class="flex justify-between items-center mt-3"><p class="text-lg font-extrabold text-primary">$24.99</p><p class="text-xs text-on-surface-variant">Stock: <span class="font-bold text-on-surface">56</span></p></div>
+                <div class="flex gap-2 mt-3"><button onclick="Drawer.open('drawer-edit-product')" class="flex-1 px-3 py-2 bg-surface-container-low rounded-lg text-xs font-bold text-on-surface-variant hover:bg-surface-container transition-colors text-center">Editar</button><button onclick="Toast.show('Producto duplicado','success')" class="p-2 bg-surface-container-low rounded-lg text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">content_copy</span></button></div>
+            </div>
+        </div>
+        <!-- Product 8 -->
+        <div class="product-card rounded-xl bg-surface-container-lowest border border-outline-variant/15 overflow-hidden" data-cat="suscripcion" data-status="active" data-name="Plan Básico Mensual">
+            <div class="aspect-[4/3] bg-gradient-to-br from-teal-100 to-emerald-50 flex items-center justify-center relative"><span class="material-symbols-outlined text-5xl text-teal-300">loyalty</span><span class="absolute top-3 right-3 px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-700">Activo</span></div>
+            <div class="p-4"><p class="text-xs text-on-surface-variant font-bold uppercase tracking-wider">Suscripción</p><h4 class="text-sm font-extrabold headline mt-1">Plan Básico Mensual</h4><div class="flex justify-between items-center mt-3"><p class="text-lg font-extrabold text-primary">$12.99<span class="text-xs font-normal text-on-surface-variant">/mes</span></p><p class="text-xs text-on-surface-variant">Activos: <span class="font-bold text-on-surface">234</span></p></div>
+                <div class="flex gap-2 mt-3"><button onclick="Drawer.open('drawer-edit-product')" class="flex-1 px-3 py-2 bg-surface-container-low rounded-lg text-xs font-bold text-on-surface-variant hover:bg-surface-container transition-colors text-center">Editar</button><button onclick="Toast.show('Producto duplicado','success')" class="p-2 bg-surface-container-low rounded-lg text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">content_copy</span></button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- List View (hidden by default) -->
+    <div id="view-list" class="hidden">
+        <div class="bg-surface-container-lowest rounded-xl border border-outline-variant/15 overflow-hidden">
+            <table class="w-full text-sm">
+                <thead><tr class="border-b border-outline-variant/10 text-xs text-on-surface-variant uppercase tracking-wider"><th class="px-5 py-3 text-left font-bold">Producto</th><th class="px-5 py-3 text-left font-bold">Categoría</th><th class="px-5 py-3 text-left font-bold">Precio</th><th class="px-5 py-3 text-left font-bold">Stock</th><th class="px-5 py-3 text-left font-bold">Estado</th><th class="px-5 py-3 text-left font-bold">Acciones</th></tr></thead>
+                <tbody>
+                    <tr class="border-b border-outline-variant/5 hover:bg-surface-container-low/50"><td class="px-5 py-3 font-semibold">Guía Editorial Premium</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-100 text-indigo-700">Editorial</span></td><td class="px-5 py-3 font-bold">$49.99</td><td class="px-5 py-3">342</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-700">Activo</span></td><td class="px-5 py-3"><button onclick="Drawer.open('drawer-edit-product')" class="text-xs text-primary font-bold hover:underline">Editar</button></td></tr>
+                    <tr class="border-b border-outline-variant/5 hover:bg-surface-container-low/50"><td class="px-5 py-3 font-semibold">Plantilla Dashboard Pro</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-100 text-purple-700">Digital</span></td><td class="px-5 py-3 font-bold">$29.99</td><td class="px-5 py-3">∞</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-700">Activo</span></td><td class="px-5 py-3"><button onclick="Drawer.open('drawer-edit-product')" class="text-xs text-primary font-bold hover:underline">Editar</button></td></tr>
+                    <tr class="border-b border-outline-variant/5 hover:bg-surface-container-low/50"><td class="px-5 py-3 font-semibold">Taza Editorial Limited</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-700">Merchandise</span></td><td class="px-5 py-3 font-bold">$14.99</td><td class="px-5 py-3 text-error font-bold">0</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-100 text-red-700">Sin stock</span></td><td class="px-5 py-3"><button onclick="Drawer.open('drawer-edit-product')" class="text-xs text-primary font-bold hover:underline">Editar</button></td></tr>
+                    <tr class="border-b border-outline-variant/5 hover:bg-surface-container-low/50"><td class="px-5 py-3 font-semibold">Plan Empresarial Anual</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700">Suscripción</span></td><td class="px-5 py-3 font-bold">$199.99/año</td><td class="px-5 py-3">87 activos</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-700">Activo</span></td><td class="px-5 py-3"><button onclick="Drawer.open('drawer-edit-product')" class="text-xs text-primary font-bold hover:underline">Editar</button></td></tr>
+                    <tr class="border-b border-outline-variant/5 hover:bg-surface-container-low/50"><td class="px-5 py-3 font-semibold">Pack Iconos Editorial</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-100 text-purple-700">Digital</span></td><td class="px-5 py-3 font-bold">$9.99</td><td class="px-5 py-3">∞</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-700">Activo</span></td><td class="px-5 py-3"><button onclick="Drawer.open('drawer-edit-product')" class="text-xs text-primary font-bold hover:underline">Editar</button></td></tr>
+                    <tr class="border-b border-outline-variant/5 hover:bg-surface-container-low/50"><td class="px-5 py-3 font-semibold">Curso Redacción Avanzada</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-100 text-indigo-700">Editorial</span></td><td class="px-5 py-3 font-bold">$79.99</td><td class="px-5 py-3 text-on-surface-variant">—</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-gray-100 text-gray-600">Borrador</span></td><td class="px-5 py-3"><button onclick="Drawer.open('drawer-edit-product')" class="text-xs text-primary font-bold hover:underline">Editar</button></td></tr>
+                    <tr class="border-b border-outline-variant/5 hover:bg-surface-container-low/50"><td class="px-5 py-3 font-semibold">Camiseta The Editorial</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-700">Merchandise</span></td><td class="px-5 py-3 font-bold">$24.99</td><td class="px-5 py-3">56</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-700">Activo</span></td><td class="px-5 py-3"><button onclick="Drawer.open('drawer-edit-product')" class="text-xs text-primary font-bold hover:underline">Editar</button></td></tr>
+                    <tr class="hover:bg-surface-container-low/50"><td class="px-5 py-3 font-semibold">Plan Básico Mensual</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700">Suscripción</span></td><td class="px-5 py-3 font-bold">$12.99/mes</td><td class="px-5 py-3">234 activos</td><td class="px-5 py-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-700">Activo</span></td><td class="px-5 py-3"><button onclick="Drawer.open('drawer-edit-product')" class="text-xs text-primary font-bold hover:underline">Editar</button></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Add Product Modal -->
+<div id="modal-add-product" class="modal-overlay hidden fixed inset-0 bg-black/50 z-[100] flex items-center justify-center p-4">
+    <div class="bg-surface-container-lowest rounded-2xl shadow-2xl max-w-lg w-full animate-fade-in max-h-[90vh] overflow-y-auto">
+        <div class="flex justify-between items-center px-6 py-4 border-b border-outline-variant/10 sticky top-0 bg-surface-container-lowest z-10"><h3 class="text-sm font-extrabold headline">Nuevo Producto</h3><button onclick="Modal.close('modal-add-product')" class="p-1 text-secondary hover:text-on-surface"><span class="material-symbols-outlined">close</span></button></div>
+        <form class="p-6 space-y-4" onsubmit="event.preventDefault();Modal.close('modal-add-product');Toast.show('Producto creado exitosamente','success')">
+            <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Nombre del producto *</label><input type="text" required placeholder="Ej: Guía Editorial Premium" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"/></div>
+            <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Descripción</label><textarea rows="3" placeholder="Describe el producto..." class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm resize-none"></textarea></div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Categoría *</label><select required class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"><option value="">Seleccionar</option><option>Editorial</option><option>Digital</option><option>Merchandise</option><option>Suscripción</option></select></div>
+                <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Estado</label><select class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"><option>Borrador</option><option>Activo</option></select></div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Precio *</label><input type="number" step="0.01" min="0" required placeholder="0.00" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"/></div>
+                <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Stock</label><input type="number" min="0" placeholder="0" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"/></div>
+            </div>
+            <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Imagen del producto</label><div class="border-2 border-dashed border-outline-variant/30 rounded-xl p-8 text-center hover:border-primary/30 transition-colors cursor-pointer"><span class="material-symbols-outlined text-3xl text-on-surface-variant">cloud_upload</span><p class="text-xs text-on-surface-variant mt-2">Arrastra una imagen o <span class="text-primary font-bold">haz clic para seleccionar</span></p><p class="text-[10px] text-outline mt-1">PNG, JPG hasta 5MB</p></div></div>
+            <div class="flex gap-3 pt-2"><button type="button" onclick="Modal.close('modal-add-product')" class="flex-1 px-4 py-3 bg-surface-container-low text-on-surface rounded-lg font-bold text-sm">Cancelar</button><button type="submit" class="flex-1 px-4 py-3 bg-primary text-on-primary rounded-lg font-bold text-sm hover:opacity-90 transition-opacity">Crear Producto</button></div>
+        </form>
+    </div>
+</div>
+
+<!-- Edit Product Drawer -->
+<div id="drawer-edit-product" class="drawer-overlay hidden fixed inset-0 bg-black/50 z-[100]">
+    <div class="drawer-panel absolute right-0 top-0 h-full w-full max-w-md bg-surface-container-lowest shadow-2xl overflow-y-auto">
+        <div class="flex justify-between items-center px-6 py-4 border-b border-outline-variant/10 sticky top-0 bg-surface-container-lowest z-10"><h3 class="text-sm font-extrabold headline">Editar Producto</h3><button onclick="Drawer.close('drawer-edit-product')" class="p-1 text-secondary hover:text-on-surface"><span class="material-symbols-outlined">close</span></button></div>
+        <form class="p-6 space-y-4" onsubmit="event.preventDefault();Drawer.close('drawer-edit-product');Toast.show('Producto actualizado','success')">
+            <div class="flex items-center gap-4 pb-4 border-b border-outline-variant/10"><div class="w-16 h-16 bg-gradient-to-br from-indigo-100 to-blue-50 rounded-xl flex items-center justify-center"><span class="material-symbols-outlined text-2xl text-primary/40">menu_book</span></div><div><h4 class="text-sm font-extrabold">Guía Editorial Premium</h4><p class="text-xs text-on-surface-variant">ID: #PRD-001</p></div></div>
+            <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Nombre</label><input type="text" value="Guía Editorial Premium" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"/></div>
+            <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Descripción</label><textarea rows="3" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm resize-none">Guía completa de mejores prácticas editoriales con ejemplos del mundo real.</textarea></div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Categoría</label><select class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"><option selected>Editorial</option><option>Digital</option><option>Merchandise</option><option>Suscripción</option></select></div>
+                <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Estado</label><select class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"><option selected>Activo</option><option>Borrador</option><option>Archivado</option></select></div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Precio</label><input type="number" step="0.01" value="49.99" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"/></div>
+                <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">Stock</label><input type="number" value="342" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"/></div>
+            </div>
+            <div class="space-y-2"><label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant">SKU</label><input type="text" value="PRD-GEP-001" class="w-full px-4 py-3 bg-surface-container-low border-0 border-b-2 border-transparent focus:border-surface-tint focus:ring-0 rounded-lg text-sm"/></div>
+            <div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl"><div><p class="text-sm font-semibold">Destacar producto</p><p class="text-xs text-on-surface-variant">Mostrar en la página principal</p></div><div class="toggle-switch active" onclick="this.classList.toggle('active')"></div></div>
+            <div class="flex gap-3 pt-2">
+                <button type="button" onclick="Drawer.close('drawer-edit-product');Modal.open('modal-delete-product')" class="px-4 py-3 text-error hover:bg-error-container/30 rounded-lg font-bold text-sm transition-colors">Eliminar</button>
+                <div class="flex-1"></div>
+                <button type="button" onclick="Drawer.close('drawer-edit-product')" class="px-4 py-3 bg-surface-container-low text-on-surface rounded-lg font-bold text-sm">Cancelar</button>
+                <button type="submit" class="px-6 py-3 bg-primary text-on-primary rounded-lg font-bold text-sm hover:opacity-90 transition-opacity">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Delete Product Modal -->
+<div id="modal-delete-product" class="modal-overlay hidden fixed inset-0 bg-black/50 z-[110] flex items-center justify-center p-4">
+    <div class="bg-surface-container-lowest rounded-2xl shadow-2xl max-w-sm w-full p-6 animate-fade-in">
+        <div class="w-12 h-12 bg-error-container rounded-full flex items-center justify-center mx-auto mb-4"><span class="material-symbols-outlined text-error">delete_forever</span></div>
+        <h3 class="text-lg font-extrabold headline text-center">¿Eliminar producto?</h3>
+        <p class="text-sm text-on-surface-variant text-center mt-2">Esta acción no se puede deshacer. El producto será eliminado permanentemente.</p>
+        <div class="flex gap-3 mt-6"><button onclick="Modal.close('modal-delete-product')" class="flex-1 px-4 py-3 bg-surface-container-low text-on-surface rounded-lg font-bold text-sm">Cancelar</button><button onclick="Modal.close('modal-delete-product');Toast.show('Producto eliminado','error')" class="flex-1 px-4 py-3 bg-error text-on-error rounded-lg font-bold text-sm">Eliminar</button></div>
+    </div>
+</div>
+</main>
+
+<script src="../assets/js/core.js"></script>
+<script>
+function setView(view) {
+    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+    document.getElementById('view-grid').classList.toggle('hidden', view !== 'grid');
+    document.getElementById('view-list').classList.toggle('hidden', view !== 'list');
+}
+
+function filterProducts() {
+    const search = document.getElementById('product-search').value.toLowerCase();
+    const cat = document.getElementById('filter-category').value;
+    const status = document.getElementById('filter-status').value;
+    document.querySelectorAll('#view-grid .product-card').forEach(card => {
+        const name = (card.dataset.name || '').toLowerCase();
+        const cardCat = card.dataset.cat || '';
+        const cardStatus = card.dataset.status || '';
+        const matchSearch = !search || name.includes(search);
+        const matchCat = !cat || cardCat === cat;
+        const matchStatus = !status || cardStatus === status;
+        card.style.display = (matchSearch && matchCat && matchStatus) ? '' : 'none';
+    });
+}
+</script>
+</body>
+</html>

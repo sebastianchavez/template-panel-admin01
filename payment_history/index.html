@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Centro de Comando - Historial de Pagos</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-highest":"#e0e3e5","tertiary-fixed-dim":"#ffb691","outline-variant":"#c5c5d3","primary-fixed-dim":"#b6c4ff","primary":"#00236f","on-surface-variant":"#444651","on-error":"#ffffff","on-secondary-fixed-variant":"#3a485b","secondary":"#515f74","tertiary":"#4b1c00","surface-container-high":"#e6e8ea","secondary-fixed-dim":"#b9c7df","on-primary-container":"#90a8ff","outline":"#757682","on-primary-fixed-variant":"#264191","surface-bright":"#f7f9fb","on-primary":"#ffffff","on-tertiary-fixed-variant":"#773205","error":"#ba1a1a","tertiary-fixed":"#ffdbcb","primary-container":"#1e3a8a","surface-container":"#eceef0","on-secondary-container":"#57657a","surface-container-lowest":"#ffffff","tertiary-container":"#6e2c00","on-tertiary-container":"#f39461","surface-tint":"#4059aa","secondary-container":"#d5e3fc","surface":"#f7f9fb","on-error-container":"#93000a","surface-variant":"#e0e3e5","inverse-on-surface":"#eff1f3","error-container":"#ffdad6","on-tertiary-fixed":"#341100","inverse-primary":"#b6c4ff","on-primary-fixed":"#00164e","on-surface":"#191c1e","primary-fixed":"#dce1ff","on-background":"#191c1e","surface-container-low":"#f2f4f6","inverse-surface":"#2d3133","on-secondary":"#ffffff","secondary-fixed":"#d5e3fc","background":"#f7f9fb","surface-dim":"#d8dadc","on-secondary-fixed":"#0d1c2e","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},fontFamily:{headline:["Manrope"],body:["Inter"],label:["Inter"]}}}}</script>
+    <link rel="stylesheet" href="../assets/css/styles.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}body{font-family:'Inter',sans-serif}h1,h2,h3,.headline{font-family:'Manrope',sans-serif}</style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<div id="sidebar-overlay" class="hidden fixed inset-0 bg-black/40 z-50 lg:hidden" onclick="Sidebar.closeMobile()"></div>
+
+<!-- Sidebar -->
+<aside id="sidebar" class="w-64 h-screen fixed left-0 top-0 bg-[#d8dadc] flex flex-col border-r border-slate-200/15 font-['Manrope'] antialiased tracking-tight z-50">
+    <div class="px-6 py-6 flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white flex-shrink-0"><span class="material-symbols-outlined">architecture</span></div><div class="sidebar-brand-text"><h1 class="text-xl font-bold text-[#191c1e] leading-none">The Editorial</h1><p class="text-[10px] uppercase tracking-widest text-on-surface-variant mt-1">Centro de Comando</p></div></div>
+    <nav class="flex-1 mt-2 space-y-1 overflow-y-auto no-scrollbar">
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../dashboard/index.html"><span class="material-symbols-outlined">dashboard</span><span class="text-sm font-medium sidebar-text">Panel de Control</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../user_management/index.html"><span class="material-symbols-outlined">group</span><span class="text-sm font-medium sidebar-text">Gestión de Usuarios</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../ticket_management/index.html"><span class="material-symbols-outlined">confirmation_number</span><span class="text-sm font-medium sidebar-text">Tickets</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../payment_systems/index.html"><span class="material-symbols-outlined">account_balance</span><span class="text-sm font-medium sidebar-text">Sistemas de Pago</span></a>
+        <a class="flex items-center gap-3 border-l-4 border-[#00236f] bg-[#f2f4f6]/50 text-[#191c1e] font-bold pl-4 py-3 hover:bg-[#f2f4f6] transition-colors" href="../payment_history/index.html"><span class="material-symbols-outlined">receipt_long</span><span class="text-sm sidebar-text">Historial de Pagos</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../reports_analytics/index.html"><span class="material-symbols-outlined">monitoring</span><span class="text-sm font-medium sidebar-text">Reportes y Análisis</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../products/index.html"><span class="material-symbols-outlined">inventory_2</span><span class="text-sm font-medium sidebar-text">Productos</span></a>
+        <a class="flex items-center gap-3 text-[#444651] pl-5 py-3 hover:bg-[#f2f4f6] transition-colors border-l-4 border-transparent" href="../inbox/index.html"><span class="material-symbols-outlined">inbox</span><span class="text-sm font-medium sidebar-text">Mensajería</span></a>
+    </nav>
+    <div class="px-6 py-5 border-t border-black/5 sidebar-bottom-section"><div class="space-y-1"><a class="flex items-center gap-3 text-[#444651] py-2 hover:text-[#00236f] transition-colors" href="../settings/index.html"><span class="material-symbols-outlined">settings</span><span class="text-sm font-medium sidebar-text">Configuración</span></a><button data-toggle-dark class="flex items-center gap-3 text-[#444651] py-2 hover:text-[#00236f] transition-colors w-full text-left"><span class="material-symbols-outlined" data-dark-icon>dark_mode</span><span class="text-sm font-medium sidebar-text">Modo Oscuro</span></button><a class="flex items-center gap-3 text-[#444651] py-2 hover:text-error transition-colors" href="../login/index.html"><span class="material-symbols-outlined">logout</span><span class="text-sm font-medium sidebar-text">Cerrar Sesión</span></a></div></div>
+</aside>
+
+<!-- Header -->
+<header id="top-header" class="fixed top-0 right-0 left-64 z-40 flex justify-between items-center px-8 h-16 bg-[#f7f9fb]/80 backdrop-blur-xl text-sm border-b border-outline-variant/10">
+    <div class="flex items-center gap-6">
+        <button id="sidebar-toggle" class="lg:hidden p-2 text-secondary hover:bg-surface-container-low rounded-lg"><span class="material-symbols-outlined">menu</span></button>
+        <div class="relative hidden sm:block"><span class="absolute inset-y-0 left-3 flex items-center text-outline pointer-events-none"><span class="material-symbols-outlined text-[20px]">search</span></span><input class="bg-surface-container-highest border-none rounded-full py-2 pl-10 pr-4 w-64 focus:ring-2 ring-[#4059aa] transition-all text-on-surface placeholder:text-outline-variant text-sm" placeholder="Buscar transacción..." type="text"/></div>
+    </div>
+    <div class="flex items-center gap-3">
+        <button class="p-2 text-secondary hover:bg-surface-container-low rounded-full transition-colors relative"><span class="material-symbols-outlined">notifications</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface"></span></button>
+        <div class="h-8 w-[1px] bg-outline-variant/30 mx-1"></div>
+        <div class="relative" id="user-menu-toggle"><div class="flex items-center gap-3 cursor-pointer"><div class="text-right hidden sm:block"><p class="text-xs font-bold text-on-surface">Alex Chen</p><p class="text-[10px] text-secondary">Administrador</p></div><img class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm ring-1 ring-black/5" alt="Avatar" src="https://ui-avatars.com/api/?name=Alex+Chen&background=1e3a8a&color=fff&size=80"/></div>
+            <div id="user-menu-dropdown" class="hidden absolute right-0 top-12 w-56 bg-surface-container-lowest rounded-xl shadow-2xl border border-outline-variant/15 py-2 z-50"><div class="px-4 py-3 border-b border-outline-variant/10"><p class="text-sm font-bold text-on-surface">Alex Chen</p><p class="text-xs text-secondary">alex.chen@empresa.com</p></div><a href="../profile/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-lg">person</span>Mi Perfil</a><a href="../settings/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-on-surface-variant hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-lg">settings</span>Configuración</a><div class="border-t border-outline-variant/10 my-1"></div><a href="../login/index.html" class="flex items-center gap-3 px-4 py-2.5 text-sm text-error hover:bg-error-container/30 transition-colors"><span class="material-symbols-outlined text-lg">logout</span>Cerrar Sesión</a></div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main id="main-content" class="ml-64 pt-24 pb-12 px-8 min-h-screen transition-all">
+<div class="max-w-7xl mx-auto animate-fade-in">
+
+    <!-- Page Header -->
+    <div class="mb-10 flex flex-col lg:flex-row justify-between lg:items-end gap-4">
+        <div>
+            <div class="flex items-center gap-2 text-xs font-medium text-on-surface-variant uppercase tracking-widest mb-2"><span>Centro de Comando</span><span class="material-symbols-outlined text-[12px]">chevron_right</span><span class="text-primary font-bold">Historial de Pagos</span></div>
+            <h2 class="text-4xl font-extrabold tracking-tight text-on-surface headline">Historial de Transacciones</h2>
+            <p class="text-on-surface-variant mt-2">Revisa todas las transacciones, reembolsos y facturación.</p>
+        </div>
+        <div class="flex items-center gap-3">
+            <button onclick="CSVExport.fromTable('payments-table','pagos.csv')" class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-low text-secondary rounded-lg font-semibold text-sm hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm">download</span>Exportar CSV</button>
+            <button onclick="window.print()" class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-low text-secondary rounded-lg font-semibold text-sm hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-sm">print</span>Imprimir</button>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 animate-stagger">
+        <div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/15">
+            <div class="flex items-center justify-between"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Ingresos (mes)</span><div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center"><span class="material-symbols-outlined text-green-600 text-lg">trending_up</span></div></div>
+            <p class="text-3xl font-black headline text-on-surface mt-3">$284,750</p>
+            <p class="text-xs text-green-600 font-bold mt-1">+18.2% vs mes anterior</p>
+        </div>
+        <div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/15">
+            <div class="flex items-center justify-between"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Transacciones</span><div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center"><span class="material-symbols-outlined text-blue-600 text-lg">swap_horiz</span></div></div>
+            <p class="text-3xl font-black headline text-on-surface mt-3">3,847</p>
+            <p class="text-xs text-on-surface-variant mt-1">Promedio $74.02</p>
+        </div>
+        <div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/15">
+            <div class="flex items-center justify-between"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Reembolsos</span><div class="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center"><span class="material-symbols-outlined text-error text-lg">undo</span></div></div>
+            <p class="text-3xl font-black headline text-on-surface mt-3">$4,320</p>
+            <p class="text-xs text-error font-bold mt-1">12 reembolsos este mes</p>
+        </div>
+        <div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/15">
+            <div class="flex items-center justify-between"><span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Pendientes</span><div class="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center"><span class="material-symbols-outlined text-amber-600 text-lg">schedule</span></div></div>
+            <p class="text-3xl font-black headline text-on-surface mt-3">$12,450</p>
+            <p class="text-xs text-amber-600 font-bold mt-1">7 pagos por procesar</p>
+        </div>
+    </div>
+
+    <!-- Revenue Chart -->
+    <div class="p-6 rounded-xl bg-surface-container-lowest border border-outline-variant/15 mb-8">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-sm font-extrabold headline">Ingresos Diarios (30 días)</h3>
+            <div class="flex gap-2">
+                <select class="bg-surface-container-low border-none rounded-lg py-2 px-3 text-xs font-semibold text-secondary" id="chart-range">
+                    <option value="30">Últimos 30 días</option>
+                    <option value="7">Últimos 7 días</option>
+                    <option value="90">Últimos 90 días</option>
+                </select>
+            </div>
+        </div>
+        <div id="revenue-chart" style="height: 280px;"></div>
+    </div>
+
+    <!-- Filters -->
+    <div class="flex flex-col sm:flex-row gap-3 mb-4 items-start sm:items-center justify-between">
+        <div class="flex items-center gap-3 flex-wrap">
+            <div class="relative"><span class="absolute inset-y-0 left-3 flex items-center pointer-events-none"><span class="material-symbols-outlined text-outline text-[16px]">search</span></span><input type="text" placeholder="Buscar por ID o cliente..." class="bg-surface-container-low border-none rounded-lg py-2 pl-9 pr-4 w-56 text-xs focus:ring-2 ring-surface-tint" oninput="TableUtils.search('payments-table', this.value)"/></div>
+            <select class="bg-surface-container-low border-none rounded-lg py-2 px-3 text-xs font-semibold text-secondary focus:ring-2 ring-surface-tint" onchange="filterPaymentMethod(this.value)"><option value="">Todos los métodos</option><option value="Visa">Visa</option><option value="Mastercard">Mastercard</option><option value="PayPal">PayPal</option><option value="Transferencia">Transferencia</option></select>
+            <select class="bg-surface-container-low border-none rounded-lg py-2 px-3 text-xs font-semibold text-secondary focus:ring-2 ring-surface-tint" onchange="filterPaymentStatus(this.value)"><option value="">Todos los estados</option><option value="Completado">Completado</option><option value="Pendiente">Pendiente</option><option value="Fallido">Fallido</option><option value="Reembolsado">Reembolsado</option></select>
+            <input type="date" class="bg-surface-container-low border-none rounded-lg py-2 px-3 text-xs font-semibold text-secondary focus:ring-2 ring-surface-tint"/>
+        </div>
+        <span class="text-xs text-on-surface-variant font-medium">Mostrando <span id="payments-table-count">8</span> transacciones</span>
+    </div>
+
+    <!-- Payments Table -->
+    <div class="rounded-xl bg-surface-container-lowest border border-outline-variant/15 overflow-hidden mb-6">
+        <div class="overflow-x-auto">
+            <table id="payments-table" class="w-full text-sm">
+                <thead>
+                    <tr class="bg-surface-container-low">
+                        <th class="text-left px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest cursor-pointer" onclick="TableUtils.sort('payments-table',0)">ID Transacción <span class="material-symbols-outlined text-[12px] sort-icon">unfold_more</span></th>
+                        <th class="text-left px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Cliente</th>
+                        <th class="text-left px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest cursor-pointer" onclick="TableUtils.sort('payments-table',2,'number')">Monto <span class="material-symbols-outlined text-[12px] sort-icon">unfold_more</span></th>
+                        <th class="text-left px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Método</th>
+                        <th class="text-left px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Estado</th>
+                        <th class="text-left px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest cursor-pointer" onclick="TableUtils.sort('payments-table',5)">Fecha <span class="material-symbols-outlined text-[12px] sort-icon">unfold_more</span></th>
+                        <th class="text-left px-6 py-3 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Detalle</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-outline-variant/10">
+                    <tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="Modal.open('modal-payment-detail')">
+                        <td class="px-6 py-4 text-xs font-mono font-bold text-primary">#PAY-94821</td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-3"><img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=Acme+Corp&background=1e3a8a&color=fff&size=64" alt=""/><div><p class="font-semibold text-on-surface">Acme Corp</p><p class="text-xs text-on-surface-variant">Suscripción Enterprise</p></div></div></td>
+                        <td class="px-6 py-4 font-bold text-on-surface">$2,499.00</td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-blue-600 text-lg">credit_card</span><span class="text-xs font-medium">Visa ****4532</span></div></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-green-100 text-green-700">Completado</span></td>
+                        <td class="px-6 py-4 text-xs text-on-surface-variant">15 Jun 2026</td>
+                        <td class="px-6 py-4"><button class="p-1.5 rounded-lg hover:bg-surface-container-low transition-colors" onclick="event.stopPropagation()"><span class="material-symbols-outlined text-lg text-secondary">receipt</span></button></td>
+                    </tr>
+                    <tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="Modal.open('modal-payment-detail')">
+                        <td class="px-6 py-4 text-xs font-mono font-bold text-primary">#PAY-94820</td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-3"><img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=TechStart&background=264191&color=fff&size=64" alt=""/><div><p class="font-semibold text-on-surface">TechStart Inc</p><p class="text-xs text-on-surface-variant">Plan Pro Mensual</p></div></div></td>
+                        <td class="px-6 py-4 font-bold text-on-surface">$149.00</td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-amber-600 text-lg">credit_card</span><span class="text-xs font-medium">Mastercard ****8901</span></div></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-green-100 text-green-700">Completado</span></td>
+                        <td class="px-6 py-4 text-xs text-on-surface-variant">15 Jun 2026</td>
+                        <td class="px-6 py-4"><button class="p-1.5 rounded-lg hover:bg-surface-container-low transition-colors" onclick="event.stopPropagation()"><span class="material-symbols-outlined text-lg text-secondary">receipt</span></button></td>
+                    </tr>
+                    <tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="Modal.open('modal-payment-detail')">
+                        <td class="px-6 py-4 text-xs font-mono font-bold text-primary">#PAY-94819</td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-3"><img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=GreenCo&background=4059aa&color=fff&size=64" alt=""/><div><p class="font-semibold text-on-surface">GreenCo LLC</p><p class="text-xs text-on-surface-variant">Suscripción Básico</p></div></div></td>
+                        <td class="px-6 py-4 font-bold text-on-surface">$49.00</td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-indigo-600 text-lg">account_balance_wallet</span><span class="text-xs font-medium">PayPal</span></div></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-100 text-amber-700">Pendiente</span></td>
+                        <td class="px-6 py-4 text-xs text-on-surface-variant">14 Jun 2026</td>
+                        <td class="px-6 py-4"><button class="p-1.5 rounded-lg hover:bg-surface-container-low transition-colors" onclick="event.stopPropagation()"><span class="material-symbols-outlined text-lg text-secondary">receipt</span></button></td>
+                    </tr>
+                    <tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="Modal.open('modal-payment-detail')">
+                        <td class="px-6 py-4 text-xs font-mono font-bold text-primary">#PAY-94818</td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-3"><img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=Nova+Labs&background=773205&color=fff&size=64" alt=""/><div><p class="font-semibold text-on-surface">Nova Labs</p><p class="text-xs text-on-surface-variant">Plan Enterprise Anual</p></div></div></td>
+                        <td class="px-6 py-4 font-bold text-on-surface">$24,990.00</td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-green-600 text-lg">account_balance</span><span class="text-xs font-medium">Transferencia</span></div></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-green-100 text-green-700">Completado</span></td>
+                        <td class="px-6 py-4 text-xs text-on-surface-variant">13 Jun 2026</td>
+                        <td class="px-6 py-4"><button class="p-1.5 rounded-lg hover:bg-surface-container-low transition-colors" onclick="event.stopPropagation()"><span class="material-symbols-outlined text-lg text-secondary">receipt</span></button></td>
+                    </tr>
+                    <tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="Modal.open('modal-payment-detail')">
+                        <td class="px-6 py-4 text-xs font-mono font-bold text-primary">#PAY-94817</td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-3"><img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=DevHub&background=515f74&color=fff&size=64" alt=""/><div><p class="font-semibold text-on-surface">DevHub SA</p><p class="text-xs text-on-surface-variant">Plan Pro Mensual</p></div></div></td>
+                        <td class="px-6 py-4 font-bold text-error">-$149.00</td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-blue-600 text-lg">credit_card</span><span class="text-xs font-medium">Visa ****7823</span></div></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-red-100 text-red-700">Reembolsado</span></td>
+                        <td class="px-6 py-4 text-xs text-on-surface-variant">12 Jun 2026</td>
+                        <td class="px-6 py-4"><button class="p-1.5 rounded-lg hover:bg-surface-container-low transition-colors" onclick="event.stopPropagation()"><span class="material-symbols-outlined text-lg text-secondary">receipt</span></button></td>
+                    </tr>
+                    <tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="Modal.open('modal-payment-detail')">
+                        <td class="px-6 py-4 text-xs font-mono font-bold text-primary">#PAY-94816</td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-3"><img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=CloudNet&background=3a485b&color=fff&size=64" alt=""/><div><p class="font-semibold text-on-surface">CloudNet</p><p class="text-xs text-on-surface-variant">Suscripción Enterprise</p></div></div></td>
+                        <td class="px-6 py-4 font-bold text-on-surface">$2,499.00</td>
+                        <td class="px-6 py-4"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-blue-600 text-lg">credit_card</span><span class="text-xs font-medium">Visa ****3456</span></div></td>
+                        <td class="px-6 py-4"><span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-red-100 text-red-700">Fallido</span></td>
+                        <td class="px-6 py-4 text-xs text-on-surface-variant">11 Jun 2026</td>
+                        <td class="px-6 py-4"><button class="p-1.5 rounded-lg hover:bg-surface-container-low transition-colors" onclick="event.stopPropagation()"><span class="material-symbols-outlined text-lg text-secondary">receipt</span></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="flex items-center justify-between px-6 py-4 border-t border-outline-variant/10">
+            <span class="text-xs text-on-surface-variant">1-6 de 3,847 transacciones</span>
+            <div class="flex items-center gap-2">
+                <button class="px-3 py-1.5 text-xs font-semibold bg-surface-container-low text-secondary rounded-lg disabled:opacity-40" disabled>Anterior</button>
+                <span class="text-xs font-bold text-on-surface">Página 1 de 642</span>
+                <button class="px-3 py-1.5 text-xs font-semibold bg-primary text-white rounded-lg">Siguiente</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</main>
+
+<!-- Payment Detail Modal -->
+<div id="modal-payment-detail" class="hidden fixed inset-0 z-[100] items-center justify-center p-4">
+    <div class="modal-backdrop absolute inset-0 bg-black/40" onclick="Modal.close('modal-payment-detail')"></div>
+    <div class="modal-panel relative bg-surface-container-lowest rounded-xl shadow-2xl w-full max-w-md p-6 border border-outline-variant/15">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-lg font-extrabold headline">Detalle de Transacción</h3>
+            <button onclick="Modal.close('modal-payment-detail')" class="p-1 hover:bg-surface-container-low rounded-lg transition-colors"><span class="material-symbols-outlined">close</span></button>
+        </div>
+        <div class="space-y-4">
+            <div class="text-center mb-4">
+                <p class="text-3xl font-black headline text-green-600">$2,499.00</p>
+                <span class="px-3 py-1 rounded-lg text-xs font-bold bg-green-100 text-green-700 inline-block mt-2">Completado</span>
+            </div>
+            <div class="grid grid-cols-2 gap-4 p-4 bg-surface-container-low rounded-xl text-sm">
+                <div><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">ID</span><p class="font-mono font-bold mt-1">#PAY-94821</p></div>
+                <div><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Fecha</span><p class="font-medium mt-1">15 Jun 2026 14:32</p></div>
+                <div><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Cliente</span><p class="font-medium mt-1">Acme Corp</p></div>
+                <div><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Método</span><p class="font-medium mt-1">Visa ****4532</p></div>
+                <div><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Concepto</span><p class="font-medium mt-1">Suscripción Enterprise</p></div>
+                <div><span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Gateway</span><p class="font-medium mt-1">Stripe</p></div>
+            </div>
+            <div class="flex gap-3 pt-2">
+                <button onclick="Modal.close('modal-payment-detail')" class="flex-1 py-3 bg-surface-container-low text-secondary rounded-lg font-semibold text-sm hover:bg-surface-container transition-colors">Cerrar</button>
+                <button onclick="Toast.show('Reembolso procesado','warning');Modal.close('modal-payment-detail')" class="flex-1 py-3 bg-error text-on-error rounded-lg font-bold text-sm hover:opacity-90 transition-opacity">Reembolsar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../assets/js/core.js"></script>
+<script>
+// Revenue chart
+const isDark = document.documentElement.classList.contains('dark');
+const revChart = new ApexCharts(document.querySelector('#revenue-chart'), {
+    chart: { type: 'bar', height: 280, toolbar: { show: false }, fontFamily: 'Inter',
+             foreColor: isDark ? '#a0a3a7' : '#757682' },
+    series: [{ name: 'Ingresos', data: [8200,9100,7800,10500,9400,11200,12800,9700,10200,13500,11800,14200,
+              9800,10600,8900,12100,11400,13800,10900,9200,14500,12700,11100,15200,13400,10800,14800,12300,11600,16100] }],
+    xaxis: { categories: Array.from({length:30},(_,i)=> (i+1)+' Jun'), labels:{style:{fontSize:'10px'}} },
+    yaxis: { labels: { formatter: v => '$'+Fmt.number(v), style:{fontSize:'10px'} } },
+    colors: ['#00236f'],
+    plotOptions: { bar: { borderRadius: 4, columnWidth: '60%' } },
+    dataLabels: { enabled: false },
+    grid: { borderColor: isDark ? '#2d3133' : '#e0e3e5', strokeDashArray: 3 },
+    tooltip: { y: { formatter: v => Fmt.currency(v) } }
+});
+revChart.render();
+
+function filterPaymentMethod(method) {
+    const rows = document.querySelectorAll('#payments-table tbody tr');
+    let count = 0;
+    rows.forEach(r => {
+        const m = r.cells[3]?.textContent.trim();
+        const show = !method || m.includes(method);
+        r.style.display = show ? '' : 'none';
+        if(show) count++;
+    });
+    document.getElementById('payments-table-count').textContent = count;
+}
+
+function filterPaymentStatus(status) {
+    const rows = document.querySelectorAll('#payments-table tbody tr');
+    let count = 0;
+    rows.forEach(r => {
+        const s = r.cells[4]?.textContent.trim();
+        const show = !status || s === status;
+        r.style.display = show ? '' : 'none';
+        if(show) count++;
+    });
+    document.getElementById('payments-table-count').textContent = count;
+}
+
+document.addEventListener('dark-mode-changed', e => {
+    const dark = e.detail.dark;
+    revChart.updateOptions({ chart:{foreColor: dark?'#a0a3a7':'#757682'}, grid:{borderColor: dark?'#2d3133':'#e0e3e5'} });
+});
+</script>
+</body>
+</html>
