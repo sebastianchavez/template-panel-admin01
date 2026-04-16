@@ -34,7 +34,7 @@
 </aside>
 
 <!-- Header -->
-<header id="top-header" class="fixed top-0 right-0 left-64 z-40 flex justify-between items-center px-8 h-16 bg-[#f7f9fb]/80 backdrop-blur-xl text-sm border-b border-outline-variant/10">
+<header id="top-header" class="fixed top-0 right-0 left-0 lg:left-64 z-40 flex justify-between items-center px-4 lg:px-8 h-16 bg-[#f7f9fb]/80 backdrop-blur-xl text-sm border-b border-outline-variant/10">
     <div class="flex items-center gap-6"><button id="sidebar-toggle" class="lg:hidden p-2 text-secondary hover:bg-surface-container-low rounded-lg"><span class="material-symbols-outlined">menu</span></button><h2 class="text-lg font-extrabold headline hidden sm:block">Productos</h2></div>
     <div class="flex items-center gap-3">
         <button class="p-2 text-secondary hover:bg-surface-container-low rounded-full transition-colors relative"><span class="material-symbols-outlined">notifications</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface"></span></button>
@@ -45,7 +45,7 @@
     </div>
 </header>
 
-<main id="main-content" class="ml-64 pt-24 pb-12 px-8 min-h-screen transition-all">
+<main id="main-content" class="ml-0 lg:ml-64 pt-24 pb-12 px-4 lg:px-8 min-h-screen transition-all">
 <div class="max-w-7xl mx-auto animate-fade-in">
 
     <div class="mb-8">
@@ -67,7 +67,7 @@
     <!-- Filters & View Toggle -->
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
         <div class="flex items-center gap-3 flex-wrap">
-            <div class="relative"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-lg">search</span><input type="text" id="product-search" placeholder="Buscar productos..." class="pl-10 pr-4 py-2.5 bg-surface-container-lowest border border-outline-variant/15 rounded-xl text-xs w-56 focus:ring-1 focus:ring-primary focus:border-primary" oninput="filterProducts()"/></div>
+            <div class="relative"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-lg">search</span><input type="text" id="product-search" placeholder="Buscar productos..." class="pl-10 pr-4 py-2.5 bg-surface-container-lowest border border-outline-variant/15 rounded-xl text-xs w-full sm:w-56 focus:ring-1 focus:ring-primary focus:border-primary" oninput="filterProducts()"/></div>
             <select id="filter-category" class="px-4 py-2.5 bg-surface-container-lowest border border-outline-variant/15 rounded-xl text-xs focus:ring-1 focus:ring-primary" onchange="filterProducts()"><option value="">Todas las categorías</option><option value="editorial">Editorial</option><option value="digital">Digital</option><option value="merchandise">Merchandise</option><option value="suscripcion">Suscripción</option></select>
             <select id="filter-status" class="px-4 py-2.5 bg-surface-container-lowest border border-outline-variant/15 rounded-xl text-xs focus:ring-1 focus:ring-primary" onchange="filterProducts()"><option value="">Todos los estados</option><option value="active">Activo</option><option value="draft">Borrador</option><option value="out">Sin stock</option></select>
         </div>
@@ -139,7 +139,7 @@
 
     <!-- List View (hidden by default) -->
     <div id="view-list" class="hidden">
-        <div class="bg-surface-container-lowest rounded-xl border border-outline-variant/15 overflow-hidden">
+        <div class="bg-surface-container-lowest rounded-xl border border-outline-variant/15 overflow-x-auto">
             <table class="w-full text-sm">
                 <thead><tr class="border-b border-outline-variant/10 text-xs text-on-surface-variant uppercase tracking-wider"><th class="px-5 py-3 text-left font-bold">Producto</th><th class="px-5 py-3 text-left font-bold">Categoría</th><th class="px-5 py-3 text-left font-bold">Precio</th><th class="px-5 py-3 text-left font-bold">Stock</th><th class="px-5 py-3 text-left font-bold">Estado</th><th class="px-5 py-3 text-left font-bold">Acciones</th></tr></thead>
                 <tbody>

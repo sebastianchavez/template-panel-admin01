@@ -34,7 +34,7 @@
 </aside>
 
 <!-- Header -->
-<header id="top-header" class="fixed top-0 right-0 left-64 z-40 flex justify-between items-center px-8 h-16 bg-[#f7f9fb]/80 backdrop-blur-xl text-sm border-b border-outline-variant/10">
+<header id="top-header" class="fixed top-0 right-0 left-0 lg:left-64 z-40 flex justify-between items-center px-4 lg:px-8 h-16 bg-[#f7f9fb]/80 backdrop-blur-xl text-sm border-b border-outline-variant/10">
     <div class="flex items-center gap-6"><button id="sidebar-toggle" class="lg:hidden p-2 text-secondary hover:bg-surface-container-low rounded-lg"><span class="material-symbols-outlined">menu</span></button><h2 class="text-lg font-extrabold headline hidden sm:block">Mensajería</h2></div>
     <div class="flex items-center gap-3">
         <button class="p-2 text-secondary hover:bg-surface-container-low rounded-full transition-colors relative"><span class="material-symbols-outlined">notifications</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface"></span></button>
@@ -45,11 +45,11 @@
     </div>
 </header>
 
-<main id="main-content" class="ml-64 pt-16 min-h-screen transition-all">
+<main id="main-content" class="ml-0 lg:ml-64 pt-16 min-h-screen transition-all">
 <div class="flex h-[calc(100vh-4rem)]">
 
     <!-- Mail Folders Sidebar -->
-    <div class="w-56 border-r border-outline-variant/15 bg-surface-container-lowest flex flex-col shrink-0">
+    <div id="mail-folders" class="hidden md:flex w-56 border-r border-outline-variant/15 bg-surface-container-lowest flex-col shrink-0">
         <div class="p-4">
             <button onclick="Modal.open('modal-compose')" class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-primary text-on-primary rounded-xl font-bold text-sm hover:opacity-90 transition-opacity"><span class="material-symbols-outlined text-lg">edit</span>Nuevo Mensaje</button>
         </div>
@@ -72,7 +72,7 @@
     </div>
 
     <!-- Message List -->
-    <div class="w-80 border-r border-outline-variant/15 bg-surface flex flex-col shrink-0">
+    <div id="mail-list-panel" class="w-full md:w-80 border-r border-outline-variant/15 bg-surface flex flex-col shrink-0">
         <div class="p-3 border-b border-outline-variant/10"><div class="relative"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-lg">search</span><input type="text" placeholder="Buscar mensajes..." class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low border-0 rounded-lg text-xs focus:ring-1 focus:ring-primary"/></div></div>
         <div class="flex-1 overflow-y-auto" id="mail-list">
             <!-- Mail 1 - unread, active -->
@@ -105,11 +105,12 @@
     </div>
 
     <!-- Message Preview -->
-    <div class="flex-1 flex flex-col bg-surface-container-lowest" id="mail-preview">
+    <div class="hidden md:flex flex-1 flex-col bg-surface-container-lowest" id="mail-preview">
         <!-- Mail Header -->
-        <div class="p-6 border-b border-outline-variant/10">
+        <div class="p-4 md:p-6 border-b border-outline-variant/10">
             <div class="flex justify-between items-start">
                 <div>
+                    <button onclick="backToList()" class="md:hidden flex items-center gap-1 text-xs text-primary font-semibold mb-2"><span class="material-symbols-outlined text-base">arrow_back</span>Volver a la lista</button>
                     <h3 class="text-lg font-extrabold headline" id="preview-subject">Campaña Q1 2026 — Revisión Final</h3>
                     <div class="flex items-center gap-3 mt-2">
                         <img class="w-10 h-10 rounded-full" id="preview-avatar" src="https://ui-avatars.com/api/?name=Marketing&background=dc2626&color=fff&size=80" alt=""/>
@@ -128,7 +129,7 @@
             </div>
         </div>
         <!-- Mail Body -->
-        <div class="flex-1 overflow-y-auto p-6" id="preview-body">
+        <div class="flex-1 overflow-y-auto p-4 md:p-6" id="preview-body">
             <div class="prose prose-sm max-w-none text-sm text-on-surface leading-relaxed">
                 <p>Hola Alex,</p>
                 <p>Adjunto el plan de campaña actualizado para Q1 2026. Hemos incorporado los cambios que discutimos en la última reunión:</p>
@@ -159,6 +160,9 @@
         </div>
     </div>
 </div>
+
+<!-- Mobile Compose FAB -->
+<button onclick="Modal.open('modal-compose')" class="md:hidden fixed bottom-6 right-6 z-50 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:opacity-90 transition-opacity"><span class="material-symbols-outlined">edit</span></button>
 
 <!-- Compose Modal -->
 <div id="modal-compose" class="modal-overlay hidden fixed inset-0 bg-black/50 z-[100] flex items-end sm:items-center justify-center p-4">
@@ -201,10 +205,21 @@ const mails = [
     { subject:'Acceso al panel de proveedores', sender:'Ana López', email:'ana.lopez@empresa.com', date:'24 Dic, 2:15 PM', avatar:'https://ui-avatars.com/api/?name=Ana+Lopez&background=2563eb&color=fff&size=80', body:'<p>Hola Alex,</p><p>Necesito acceso al módulo de proveedores para poder configurar los nuevos métodos de pago que acordamos. Actualmente solo tengo permisos de lectura.</p><p>¿Podrías actualizarme el rol a Editor en ese módulo? Mi usuario es <strong>ana.lopez</strong>.</p><p class="mt-4">Gracias de antemano,<br/><strong>Ana López</strong><br/>Finance Manager</p>' }
 ];
 
+function backToList() {
+    document.getElementById('mail-list-panel').classList.remove('hidden');
+    document.getElementById('mail-preview').classList.add('hidden');
+    document.getElementById('mail-preview').classList.remove('flex');
+}
 function selectMail(el, idx) {
     document.querySelectorAll('.mail-item').forEach(m => m.classList.remove('active'));
     el.classList.add('active');
     el.classList.remove('unread');
+    // Mobile: show preview, hide list
+    if (window.innerWidth < 768) {
+        document.getElementById('mail-list-panel').classList.add('hidden');
+        document.getElementById('mail-preview').classList.remove('hidden');
+        document.getElementById('mail-preview').classList.add('flex');
+    }
     const m = mails[idx];
     document.getElementById('preview-subject').textContent = m.subject;
     document.getElementById('preview-sender').textContent = m.sender;

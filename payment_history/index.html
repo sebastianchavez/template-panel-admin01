@@ -32,7 +32,7 @@
 </aside>
 
 <!-- Header -->
-<header id="top-header" class="fixed top-0 right-0 left-64 z-40 flex justify-between items-center px-8 h-16 bg-[#f7f9fb]/80 backdrop-blur-xl text-sm border-b border-outline-variant/10">
+<header id="top-header" class="fixed top-0 right-0 left-0 lg:left-64 z-40 flex justify-between items-center px-4 lg:px-8 h-16 bg-[#f7f9fb]/80 backdrop-blur-xl text-sm border-b border-outline-variant/10">
     <div class="flex items-center gap-6">
         <button id="sidebar-toggle" class="lg:hidden p-2 text-secondary hover:bg-surface-container-low rounded-lg"><span class="material-symbols-outlined">menu</span></button>
         <div class="relative hidden sm:block"><span class="absolute inset-y-0 left-3 flex items-center text-outline pointer-events-none"><span class="material-symbols-outlined text-[20px]">search</span></span><input class="bg-surface-container-highest border-none rounded-full py-2 pl-10 pr-4 w-64 focus:ring-2 ring-[#4059aa] transition-all text-on-surface placeholder:text-outline-variant text-sm" placeholder="Buscar transacción..." type="text"/></div>
@@ -47,7 +47,7 @@
 </header>
 
 <!-- Main Content -->
-<main id="main-content" class="ml-64 pt-24 pb-12 px-8 min-h-screen transition-all">
+<main id="main-content" class="ml-0 lg:ml-64 pt-24 pb-12 px-4 lg:px-8 min-h-screen transition-all">
 <div class="max-w-7xl mx-auto animate-fade-in">
 
     <!-- Page Header -->
@@ -105,7 +105,7 @@
     <!-- Filters -->
     <div class="flex flex-col sm:flex-row gap-3 mb-4 items-start sm:items-center justify-between">
         <div class="flex items-center gap-3 flex-wrap">
-            <div class="relative"><span class="absolute inset-y-0 left-3 flex items-center pointer-events-none"><span class="material-symbols-outlined text-outline text-[16px]">search</span></span><input type="text" placeholder="Buscar por ID o cliente..." class="bg-surface-container-low border-none rounded-lg py-2 pl-9 pr-4 w-56 text-xs focus:ring-2 ring-surface-tint" oninput="TableUtils.search('payments-table', this.value)"/></div>
+            <div class="relative"><span class="absolute inset-y-0 left-3 flex items-center pointer-events-none"><span class="material-symbols-outlined text-outline text-[16px]">search</span></span><input type="text" placeholder="Buscar por ID o cliente..." class="bg-surface-container-low border-none rounded-lg py-2 pl-9 pr-4 w-full sm:w-56 text-xs focus:ring-2 ring-surface-tint" oninput="TableUtils.search('payments-table', this.value)"/></div>
             <select class="bg-surface-container-low border-none rounded-lg py-2 px-3 text-xs font-semibold text-secondary focus:ring-2 ring-surface-tint" onchange="filterPaymentMethod(this.value)"><option value="">Todos los métodos</option><option value="Visa">Visa</option><option value="Mastercard">Mastercard</option><option value="PayPal">PayPal</option><option value="Transferencia">Transferencia</option></select>
             <select class="bg-surface-container-low border-none rounded-lg py-2 px-3 text-xs font-semibold text-secondary focus:ring-2 ring-surface-tint" onchange="filterPaymentStatus(this.value)"><option value="">Todos los estados</option><option value="Completado">Completado</option><option value="Pendiente">Pendiente</option><option value="Fallido">Fallido</option><option value="Reembolsado">Reembolsado</option></select>
             <input type="date" class="bg-surface-container-low border-none rounded-lg py-2 px-3 text-xs font-semibold text-secondary focus:ring-2 ring-surface-tint"/>

@@ -63,10 +63,10 @@ const Sidebar = {
         // Restore collapsed state
         if (localStorage.getItem('sidebar-collapsed') === 'true' && sidebar) {
             sidebar.classList.add('sidebar-collapsed');
-            document.getElementById('main-content')?.classList.add('ml-20');
-            document.getElementById('main-content')?.classList.remove('ml-64');
-            document.getElementById('top-header')?.classList.add('left-20');
-            document.getElementById('top-header')?.classList.remove('left-64');
+            document.getElementById('main-content')?.classList.add('lg:ml-20');
+            document.getElementById('main-content')?.classList.remove('lg:ml-64');
+            document.getElementById('top-header')?.classList.add('lg:left-20');
+            document.getElementById('top-header')?.classList.remove('lg:left-64');
         }
     },
     openMobile() {
@@ -84,8 +84,8 @@ const Sidebar = {
         if (!sidebar) return;
         const collapsed = sidebar.classList.toggle('sidebar-collapsed');
         localStorage.setItem('sidebar-collapsed', collapsed);
-        if (main) { main.classList.toggle('ml-20', collapsed); main.classList.toggle('ml-64', !collapsed); }
-        if (header) { header.classList.toggle('left-20', collapsed); header.classList.toggle('left-64', !collapsed); }
+        if (main) { main.classList.toggle('lg:ml-20', collapsed); main.classList.toggle('lg:ml-64', !collapsed); }
+        if (header) { header.classList.toggle('lg:left-20', collapsed); header.classList.toggle('lg:left-64', !collapsed); }
     }
 };
 

@@ -358,3 +358,26 @@ html.dark .calendar-day.today {
 
 .line-clamp-1 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
 .line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+
+/* ---- Mobile Responsive Enhancements ---- */
+@media (max-width: 639px) {
+    /* Ensure modals don't overflow */
+    .modal-overlay > div {
+        max-width: calc(100vw - 2rem);
+        max-height: calc(100vh - 2rem);
+        overflow-y: auto;
+    }
+    /* Drawer takes full width on mobile */
+    .drawer-panel {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    /* Table minimum widths for horizontal scroll */
+    table {
+        min-width: 600px;
+    }
+    /* Prevent horizontal body overflow */
+    body {
+        overflow-x: hidden;
+    }
+}
